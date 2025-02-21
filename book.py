@@ -37,12 +37,15 @@ class OrgLiv:
     @staticmethod
     def limp(it:list):
         
+        print(it)
+
         if not it:
             return False
         
         if len(it[1]) <= 1:
             it_ret = [
-                [it[0][0], int( it[0][1])]
+                [it[0][0], int( it[0][1])],
+                ['', '']
             ]
             return it_ret
 
@@ -78,4 +81,5 @@ class OrgLiv:
     def display(self):
         self.apresent(self.cn)
         contexto = {'cn': self.cn, "ch": self.ch, "m": self.m, "l": self.l}
+        
         return contexto

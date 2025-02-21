@@ -273,11 +273,12 @@
         </form>
     </div>
 
+    
     <h1>Hoje você vai levar: </h1>
-    <p>Ciências da Natureza: {{context['cn']}}</p>
-    <p>Ciências Humanas: {{context['ch']}} </p>
-    <p>Matemática: {{context['m']}}</p>
-    <p>Linguagens: {{context['l']}}</p>
+    <p>Ciências da Natureza: {{context['cn'][0][0]}} {{context['cn'][0][1]}} / {{context['cn'][1][0]}} {{context['cn'][1][1]}}</p>
+    <p>Ciências Humanas: {{context['ch'][0][0]}} {{context['ch'][0][1]}} / {{context['ch'][1][0]}} {{context['ch'][1][1]}} </p>
+    <p>Matemática: {{context['m'][0][0]}} {{context['m'][0][1]}} / {{context['m'][1][0]}} {{context['m'][1][1]}}</p>
+    <p>Linguagens: {{context['l'][0][0]}} {{context['l'][0][1]}} / {{context['l'][1][0]}} {{context['l'][1][1]}}</p>
     
 </body>
 
