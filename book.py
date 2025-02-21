@@ -36,30 +36,39 @@ class OrgLiv:
 
     @staticmethod
     def limp(it:list):
-        
-        print(it)
+        it_ret = it
 
-        if not it:
-            return False
-        
-        if len(it[1]) <= 1:
-            it_ret = [
-                [it[0][0], int( it[0][1])],
-                ['', '']
+        for lista in it_ret:
+            if len(lista[1]) <= 1:
+                lista[1] = [
+                    lista[1][0], lista[1][0]
+                ]
+            
+            lista[0] = [
+                
+                lista[0][0], int(lista[0][1])
+
             ]
-            return it_ret
 
-        it_ret = [
-            [it[0][0], int( it[0][1] )],
-            [it[1][0], int( it[1][1] )]
-        ]
+            lista[1] = [
+                
+                lista[1][0], int(lista[1][1])
+
+            ]
+
 
         return it_ret
 
     @staticmethod
     def apresent(values:list):
-        ap_modulos = [values[num][0] for num in range(len(values))]
-        ap_nums = [values[num][1] for num in range(len(values))]
+        ap_modulos = [ values[num][0]
+                      for num in range(len(values)) 
+                     ]
+
+        ap_nums = [ values[num][1]
+                    for num in range(len(values))
+                  ]
+
         demonst = list(zip(ap_modulos, ap_nums))
         print(demonst)
 
@@ -71,6 +80,8 @@ class OrgLiv:
         if ch:
             self.ch = self.limp(ch)
 
+        print(ch)
+
         if m:
             self.m = self.limp(m)
 
@@ -80,6 +91,13 @@ class OrgLiv:
     
     def display(self):
         self.apresent(self.cn)
-        contexto = {'cn': self.cn, "ch": self.ch, "m": self.m, "l": self.l}
+        contexto = {
+            'cn': self.cn,
+            "ch": [ self.ch[0],
+                    self.ch[1],
+                    self.ch[2] ],
+            "m": self.m,
+            "l": self.l
+            }
         
         return contexto

@@ -7,13 +7,22 @@ def homepage():
     livros = OrgLiv()
     context = None
     if request.method == "POST":
-        ch = [request.form['ch1'].split(' '), request.form['ch2'].split(' ')]
-        cn = [request.form['cn1'].split(' '), request.form['cn2'].split(' ')]
-        l =[request.form['l1'].split(' '), request.form['l2'].split(' ')]
-        m = [request.form['m1'].split(' '), request.form['m2'].split(' ')]
+
+        print(request.form['f1'].split(' '))
+
+        fisica = [request.form['f1'].split(' '), request.form["f2"].split(' ')]
+        quimica = [request.form['q1'].split(' '), request.form['q2'].split(' ')]
+        biologia = [request.form['b1'].split(' '), request.form['b2'].split(' ')]
+
+        ch = [
+            fisica,
+            quimica,
+            biologia
+        ]
+
         
 
-        livros.apd(ch, cn, l, m)
+        livros.apd(ch)
         context = livros.display()
 
 
