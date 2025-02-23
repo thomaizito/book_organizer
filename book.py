@@ -43,20 +43,26 @@ class OrgLiv:
                 lista[1] = [
                     lista[1][0], lista[1][0]
                 ]
-            
-            lista[0] = [
-                
-                lista[0][0], int(lista[0][1])
 
+            if not lista[1][0] or not lista[1][1]:
+                lista[1] = [lista[1][0], lista[1][1]]
+                continue
+
+            lista[0] = [
+                lista[0][0], lista[0][1]
             ]
 
             lista[1] = [
-                
-                lista[1][0], int(lista[1][1])
-
+                lista[1][0], lista[1][1]
             ]
 
+        flag = set()
 
+        for _ in it:
+            for i in _:
+                flag.add(tuple(i))
+        
+        it_ret = list(flag)
         return it_ret
 
     @staticmethod
@@ -79,8 +85,6 @@ class OrgLiv:
 
         if ch:
             self.ch = self.limp(ch)
-
-        print(ch)
 
         if m:
             self.m = self.limp(m)
