@@ -11,36 +11,11 @@ class OrgLiv:
     @staticmethod
     def limp(it:list):
         it_ret = it
-
-        for lista in it_ret:
-            if len(lista[1]) <= 1:
-                lista[1] = [
-                    lista[1][0], lista[1][0]
-                ]
-
-            if not lista[1][0] or not lista[1][1]:
-                lista[1] = [lista[1][0], lista[1][1]]
-                continue
-            
-            if lista[0] == '':
-                print(lista[0])
-                lista[0] = [
-                    lista[0][0], lista[0][1]
-                ]
-
-            if lista[1] != '':
-                lista[1] = [
-                    lista[1][0], lista[1][1]
-                ]
-            
-            print(lista)
-            print(it_ret)
-
         flag = set()
 
-        for _ in it:
-            for i in _:
-                flag.add(tuple(i))
+        for lista in it:
+            for inner in lista:
+                flag.add(tuple(inner))
         
         it_ret = list(flag)
         return it_ret
@@ -48,7 +23,6 @@ class OrgLiv:
     # Deixa de forma apresentável
     @staticmethod 
     def apresent(values:list):
-        
         ap_modulos = [ values[num][0]
                       for num in range(len(values)) 
                       if values[num][0] != ''
