@@ -10,6 +10,11 @@
             color: white;
             font-family: Arial, Helvetica, sans-serif;
         }
+        table {
+            align-items: start;
+            width: 100%;
+
+        }
     </style>
 
 
@@ -19,392 +24,729 @@
     
     <div>
         <form action="" method="POST">
-            <h2>Ciencias humanas: </h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Ciencias da Natureza
+                        </th>
+                        <th>
+                            Ciencias Humanas
+                        </th>
 
-            <div>
-                Física: 
-                <select name="f1" required>
-                    <option></option>
-                    <option>FGB 1</option>
-                    <option>FGB 2</option>
-                    <option>FGB 3</option>
-                    <option>FGB 4</option>
-                    <option>FGB 5</option>
-                    <option>FGB 6</option>
-                    <option>FGB 7</option>
-                    <option>FGB 8</option>
-                    <option>FGB 9</option>
-                    <option>FGB 10</option>
-                    <option>FGB 11</option>
-                    <option>FGB 12</option>
+                        <th>
+                            Matemática
+                        </th>
+                    
+                        <th>
+                            Linguagens
+                        </th>
+                    </tr>
+                </thead>
 
-                    <option>FIC 1</option>
-                    <option>FIC 2</option>
-                    <option>FIC 3</option>
-                    <option>FIC 4</option>
-                    <option>FIC 5</option>
-                    <option>FIC 6</option>
-                    <option>FIC 7</option>
-                    <option>FIC 8</option>
-                    <option>FIC 9</option>
-                    <option>FIC 10</option>
-                    <option>FIC 11</option>
-                    <option>FIC 12</option>
-                </select>
+                <tbody>
+                    <tr>
+                        <td>
 
+                            <div>
+                                Física: 
+                                <select name="f1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
                 
-                <select name="f2">
-                    <option></option>
-                    <option>FGB 1</option>
-                    <option>FGB 2</option>
-                    <option>FGB 3</option>
-                    <option>FGB 4</option>
-                    <option>FGB 5</option>
-                    <option>FGB 6</option>
-                    <option>FGB 7</option>
-                    <option>FGB 8</option>
-                    <option>FGB 9</option>
-                    <option>FGB 10</option>
-                    <option>FGB 11</option>
-                    <option>FGB 12</option>
-
-                    <option>FIC 1</option>
-                    <option>FIC 2</option>
-                    <option>FIC 3</option>
-                    <option>FIC 4</option>
-                    <option>FIC 5</option>
-                    <option>FIC 6</option>
-                    <option>FIC 7</option>
-                    <option>FIC 8</option>
-                    <option>FIC 9</option>
-                    <option>FIC 10</option>
-                    <option>FIC 11</option>
-                    <option>FIC 12</option>
-                </select>
-
-                <br><br><br>
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
                 
-                Química: 
-                <select name="q1" required>
-                    <option></option>
-                    <option>FGB 1</option>
-                    <option>FGB 2</option>
-                    <option>FGB 3</option>
-                    <option>FGB 4</option>
-                    <option>FGB 5</option>
-                    <option>FGB 6</option>
-                    <option>FGB 7</option>
-                    <option>FGB 8</option>
-                    <option>FGB 9</option>
-                    <option>FGB 10</option>
-                    <option>FGB 11</option>
-                    <option>FGB 12</option>
-
-                    <option>FIC 1</option>
-                    <option>FIC 2</option>
-                    <option>FIC 3</option>
-                    <option>FIC 4</option>
-                    <option>FIC 5</option>
-                    <option>FIC 6</option>
-                    <option>FIC 7</option>
-                    <option>FIC 8</option>
-                    <option>FIC 9</option>
-                    <option>FIC 10</option>
-                    <option>FIC 11</option>
-                    <option>FIC 12</option>
-                </select>
-
+                                
+                                <select name="f2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
                 
-                <select name="q2">
-                    <option></option>
-                    <option>FGB 1</option>
-                    <option>FGB 2</option>
-                    <option>FGB 3</option>
-                    <option>FGB 4</option>
-                    <option>FGB 5</option>
-                    <option>FGB 6</option>
-                    <option>FGB 7</option>
-                    <option>FGB 8</option>
-                    <option>FGB 9</option>
-                    <option>FGB 10</option>
-                    <option>FGB 11</option>
-                    <option>FGB 12</option>
-
-                    <option>FIC 1</option>
-                    <option>FIC 2</option>
-                    <option>FIC 3</option>
-                    <option>FIC 4</option>
-                    <option>FIC 5</option>
-                    <option>FIC 6</option>
-                    <option>FIC 7</option>
-                    <option>FIC 8</option>
-                    <option>FIC 9</option>
-                    <option>FIC 10</option>
-                    <option>FIC 11</option>
-                    <option>FIC 12</option>
-                </select>
-
-                <br><br><br>
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
                 
-                Biologia: 
-                <select name="b1" required>
-                    <option></option>
-                    <option>FGB 1</option>
-                    <option>FGB 2</option>
-                    <option>FGB 3</option>
-                    <option>FGB 4</option>
-                    <option>FGB 5</option>
-                    <option>FGB 6</option>
-                    <option>FGB 7</option>
-                    <option>FGB 8</option>
-                    <option>FGB 9</option>
-                    <option>FGB 10</option>
-                    <option>FGB 11</option>
-                    <option>FGB 12</option>
-
-                    <option>FIC 1</option>
-                    <option>FIC 2</option>
-                    <option>FIC 3</option>
-                    <option>FIC 4</option>
-                    <option>FIC 5</option>
-                    <option>FIC 6</option>
-                    <option>FIC 7</option>
-                    <option>FIC 8</option>
-                    <option>FIC 9</option>
-                    <option>FIC 10</option>
-                    <option>FIC 11</option>
-                    <option>FIC 12</option>
-                </select>
-
+                                <br><br><br>
+                                
+                                Química: 
+                                <select name="q1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
                 
-                <select name="b2">
-                    <option></option>
-                    <option>FGB 1</option>
-                    <option>FGB 2</option>
-                    <option>FGB 3</option>
-                    <option>FGB 4</option>
-                    <option>FGB 5</option>
-                    <option>FGB 6</option>
-                    <option>FGB 7</option>
-                    <option>FGB 8</option>
-                    <option>FGB 9</option>
-                    <option>FGB 10</option>
-                    <option>FGB 11</option>
-                    <option>FGB 12</option>
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="q2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                <br><br><br>
+                                
+                                Biologia: 
+                                <select name="b1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="b2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                            </div>
 
-                    <option>FIC 1</option>
-                    <option>FIC 2</option>
-                    <option>FIC 3</option>
-                    <option>FIC 4</option>
-                    <option>FIC 5</option>
-                    <option>FIC 6</option>
-                    <option>FIC 7</option>
-                    <option>FIC 8</option>
-                    <option>FIC 9</option>
-                    <option>FIC 10</option>
-                    <option>FIC 11</option>
-                    <option>FIC 12</option>
-                </select>
-            </div>
+                        </td>
+                        <td>
+
+                            
+                            <div>
+                                Sociologia: 
+                                <select name="s1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="s2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+
+                                História: 
+                                <select name="h1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="h2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                <br><br><br>
+                                
+                                Geografia: 
+                                <select name="g1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="g2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                <br><br><br>
+                                
+                                Filosofia: 
+                                <select name="fi1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="fi2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                            </div>
+
+                        </td>
+                        <td>
+
+                            <div>
+                                <select name="m1">
+                                    <option></option>
+                                        <option>FGB 1</option>
+                                        <option>FGB 2</option>
+                                        <option>FGB 3</option>
+                                        <option>FGB 4</option>
+                                        <option>FGB 5</option>
+                                        <option>FGB 6</option>
+                                        <option>FGB 7</option>
+                                        <option>FGB 8</option>
+                                        <option>FGB 9</option>
+                                        <option>FGB 10</option>
+                                        <option>FGB 11</option>
+                                        <option>FGB 12</option>
+                    
+                                        <option>FIC 1</option>
+                                        <option>FIC 2</option>
+                                        <option>FIC 3</option>
+                                        <option>FIC 4</option>
+                                        <option>FIC 5</option>
+                                        <option>FIC 6</option>
+                                        <option>FIC 7</option>
+                                        <option>FIC 8</option>
+                                        <option>FIC 9</option>
+                                        <option>FIC 10</option>
+                                        <option>FIC 11</option>
+                                        <option>FIC 12</option>
+                                </select>
+
+                                <select name="m2">
+                                    <option></option>
+                                        <option>FGB 1</option>
+                                        <option>FGB 2</option>
+                                        <option>FGB 3</option>
+                                        <option>FGB 4</option>
+                                        <option>FGB 5</option>
+                                        <option>FGB 6</option>
+                                        <option>FGB 7</option>
+                                        <option>FGB 8</option>
+                                        <option>FGB 9</option>
+                                        <option>FGB 10</option>
+                                        <option>FGB 11</option>
+                                        <option>FGB 12</option>
+                    
+                                        <option>FIC 1</option>
+                                        <option>FIC 2</option>
+                                        <option>FIC 3</option>
+                                        <option>FIC 4</option>
+                                        <option>FIC 5</option>
+                                        <option>FIC 6</option>
+                                        <option>FIC 7</option>
+                                        <option>FIC 8</option>
+                                        <option>FIC 9</option>
+                                        <option>FIC 10</option>
+                                        <option>FIC 11</option>
+                                        <option>FIC 12</option>
+                                </select>
+                            </div>
+
+                        </td>
+                        <td>
+
+                            <div>
+                                Portugues: 
+                                <select name="p1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="p2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                <br><br><br>
+                                
+                                Educação Física: 
+                                <select name="ed1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="ed2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                <br><br><br>
+                                
+                                Inglês: 
+                                <select name="i1" >
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                
+                                
+                                <select name="i2">
+                                    <option></option>
+                                    <option>FGB 1</option>
+                                    <option>FGB 2</option>
+                                    <option>FGB 3</option>
+                                    <option>FGB 4</option>
+                                    <option>FGB 5</option>
+                                    <option>FGB 6</option>
+                                    <option>FGB 7</option>
+                                    <option>FGB 8</option>
+                                    <option>FGB 9</option>
+                                    <option>FGB 10</option>
+                                    <option>FGB 11</option>
+                                    <option>FGB 12</option>
+                
+                                    <option>FIC 1</option>
+                                    <option>FIC 2</option>
+                                    <option>FIC 3</option>
+                                    <option>FIC 4</option>
+                                    <option>FIC 5</option>
+                                    <option>FIC 6</option>
+                                    <option>FIC 7</option>
+                                    <option>FIC 8</option>
+                                    <option>FIC 9</option>
+                                    <option>FIC 10</option>
+                                    <option>FIC 11</option>
+                                    <option>FIC 12</option>
+                                </select>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            
 
             <br><br><br>
 
-            <div>
-            Ciencias da natureza: 
-            <select name="cn1"required>
-                <option></option>
-                <option>FGB 1</option>
-                <option>FGB 2</option>
-                <option>FGB 3</option>
-                <option>FGB 4</option>
-                <option>FGB 5</option>
-                <option>FGB 6</option>
-                <option>FGB 7</option>
-                <option>FGB 8</option>
-                <option>FGB 9</option>
-                <option>FGB 10</option>
-                <option>FGB 11</option>
-                <option>FGB 12</option>
-
-                <option>FIC 1</option>
-                <option>FIC 2</option>
-                <option>FIC 3</option>
-                <option>FIC 4</option>
-                <option>FIC 5</option>
-                <option>FIC 6</option>
-                <option>FIC 7</option>
-                <option>FIC 8</option>
-                <option>FIC 9</option>
-                <option>FIC 10</option>
-                <option>FIC 11</option>
-                <option>FIC 12</option>
-            </select>
-
             
-            <select name="cn2">
-                <option></option>
-                <option>FGB 1</option>
-                <option>FGB 2</option>
-                <option>FGB 3</option>
-                <option>FGB 4</option>
-                <option>FGB 5</option>
-                <option>FGB 6</option>
-                <option>FGB 7</option>
-                <option>FGB 8</option>
-                <option>FGB 9</option>
-                <option>FGB 10</option>
-                <option>FGB 11</option>
-                <option>FGB 12</option>
-
-                <option>FIC 1</option>
-                <option>FIC 2</option>
-                <option>FIC 3</option>
-                <option>FIC 4</option>
-                <option>FIC 5</option>
-                <option>FIC 6</option>
-                <option>FIC 7</option>
-                <option>FIC 8</option>
-                <option>FIC 9</option>
-                <option>FIC 10</option>
-                <option>FIC 11</option>
-                <option>FIC 12</option>
-            </select>
-            </div>
-
-            <br><br><br>
-
-            <div>
-            Linguagens: 
-            <select name="l1"required>
-                <option></option>
-                <option>FGB 1</option>
-                <option>FGB 2</option>
-                <option>FGB 3</option>
-                <option>FGB 4</option>
-                <option>FGB 5</option>
-                <option>FGB 6</option>
-                <option>FGB 7</option>
-                <option>FGB 8</option>
-                <option>FGB 9</option>
-                <option>FGB 10</option>
-                <option>FGB 11</option>
-                <option>FGB 12</option>
-
-                <option>FIC 1</option>
-                <option>FIC 2</option>
-                <option>FIC 3</option>
-                <option>FIC 4</option>
-                <option>FIC 5</option>
-                <option>FIC 6</option>
-                <option>FIC 7</option>
-                <option>FIC 8</option>
-                <option>FIC 9</option>
-                <option>FIC 10</option>
-                <option>FIC 11</option>
-                <option>FIC 12</option>
-            </select>
-
-            
-            <select name="l2">
-                <option></option>
-                <option>FGB 1</option>
-                <option>FGB 2</option>
-                <option>FGB 3</option>
-                <option>FGB 4</option>
-                <option>FGB 5</option>
-                <option>FGB 6</option>
-                <option>FGB 7</option>
-                <option>FGB 8</option>
-                <option>FGB 9</option>
-                <option>FGB 10</option>
-                <option>FGB 11</option>
-                <option>FGB 12</option>
-
-                <option>FIC 1</option>
-                <option>FIC 2</option>
-                <option>FIC 3</option>
-                <option>FIC 4</option>
-                <option>FIC 5</option>
-                <option>FIC 6</option>
-                <option>FIC 7</option>
-                <option>FIC 8</option>
-                <option>FIC 9</option>
-                <option>FIC 10</option>
-                <option>FIC 11</option>
-                <option>FIC 12</option>
-            </select>
-
-            </div>
-
-            <br><br><br>
-
-            <div>
-            Matemática: 
-            <select name="m1"required>
-                <option></option>
-                <option>FGB 1</option>
-                <option>FGB 2</option>
-                <option>FGB 3</option>
-                <option>FGB 4</option>
-                <option>FGB 5</option>
-                <option>FGB 6</option>
-                <option>FGB 7</option>
-                <option>FGB 8</option>
-                <option>FGB 9</option>
-                <option>FGB 10</option>
-                <option>FGB 11</option>
-                <option>FGB 12</option>
-
-                <option>FIC 1</option>
-                <option>FIC 2</option>
-                <option>FIC 3</option>
-                <option>FIC 4</option>
-                <option>FIC 5</option>
-                <option>FIC 6</option>
-                <option>FIC 7</option>
-                <option>FIC 8</option>
-                <option>FIC 9</option>
-                <option>FIC 10</option>
-                <option>FIC 11</option>
-                <option>FIC 12</option>
-            </select>
-
-            
-            <select name="m2">
-                <option></option>
-                <option>FGB 1</option>
-                <option>FGB 2</option>
-                <option>FGB 3</option>
-                <option>FGB 4</option>
-                <option>FGB 5</option>
-                <option>FGB 6</option>
-                <option>FGB 7</option>
-                <option>FGB 8</option>
-                <option>FGB 9</option>
-                <option>FGB 10</option>
-                <option>FGB 11</option>
-                <option>FGB 12</option>
-
-                <option>FIC 1</option>
-                <option>FIC 2</option>
-                <option>FIC 3</option>
-                <option>FIC 4</option>
-                <option>FIC 5</option>
-                <option>FIC 6</option>
-                <option>FIC 7</option>
-                <option>FIC 8</option>
-                <option>FIC 9</option>
-                <option>FIC 10</option>
-                <option>FIC 11</option>
-                <option>FIC 12</option>
-            </select>
-
-            </div>
-
-            <select name="it1">
-                <option></option>
-                <option>Humanas</option>
-                <option>Exatas</option>
             </select>
 
             <button type="submit"> Enviar </button>
@@ -413,6 +755,10 @@
 
     
     <h1>Hoje você vai levar: </h1>
+    <p> Ciencias da natureza: {{context['cn']}} </p>
+    <p> Ciencias Humanas: {{context['ch']}} </p>
+    <p> Matemática: {{context['m']}} </p>
+    <p> Linguagens: {{context['l']}} </p>
 </body>
 
 
