@@ -13,6 +13,27 @@ class OrgLiv:
         it_ret = it
         flag = set()
 
+        for lista in it_ret:
+            if len(lista[1]) <= 1:
+                lista[1] = [
+                    lista[1][0], lista[1][0]
+                ]
+
+            if not lista[1][0] or not lista[1][1]:
+                lista[1] = [lista[1][0], lista[1][1]]
+                continue
+            
+            if lista[0] == '':
+                print(lista[0])
+                lista[0] = [
+                    lista[0][0], lista[0][1]
+                ]
+
+            if lista[1] != '':
+                lista[1] = [
+                    lista[1][0], lista[1][1]
+                ]
+
         for lista in it:
             for inner in lista:
                 flag.add(tuple(inner))
@@ -53,6 +74,7 @@ class OrgLiv:
         
     
     def display(self):
+        print(self.m)
         dcn = self.apresent(self.cn)
         dch = self.apresent(self.ch)
         dm = self.apresent(self.m)

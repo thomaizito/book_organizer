@@ -22,7 +22,7 @@ def homepage():
         portugues = [request.form['p1'].split(' '), request.form['p2'].split(' ')]
         ed = [request.form['ed1'].split(' '), request.form['ed2'].split(' ')]
         ingles = [request.form['i1'].split(' '), request.form['i2'].split(' ')]
-        
+        literatura = [request.form['li1'].split(' '), request.form['li2'].split(' ')]
         
 
         cn = [
@@ -45,10 +45,11 @@ def homepage():
         l = [
             portugues,
             ed,
-            ingles
+            ingles,
+            literatura
         ]
 
-        livros.apd(cn, ch, l, m)
+        livros.apd(cn, ch, m, l)
         context = livros.display()
 
 
