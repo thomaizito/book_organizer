@@ -25,7 +25,6 @@ for i in range(5):
             case 'SEG':
                 if not day:
                     day = 'SEG'
-                    continue
                 seg.append(j[i].value)
 
             case 'TER':
