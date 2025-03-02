@@ -24,32 +24,33 @@ def homepage():
         ingles = [request.form['i1'].split(' '), request.form['i2'].split(' ')]
         literatura = [request.form['li1'].split(' '), request.form['li2'].split(' ')]
         
+        items:dict = {
+            'fisica': fisica,
+            'quimica': quimica,
+            'biologia': biologia,
+            'sociologia': sociologia,
 
-        cn = [
-            fisica,
-            quimica,
-            biologia
-        ]
+            'geografia': geografia,
+            'filosofia': filosofia,
+            'historia': historia,
 
-        ch = [
-            sociologia,
-            geografia,
-            filosofia,
-            historia
-        ]        
+            'matematica': matematica,
+            
+            'portugues': portugues,
+            'ed': ed,
+            'ingles': ingles,
+            'literatura': literatura
+        }
+        
 
-        m = [
-            matematica
-        ]
+         
 
-        l = [
-            portugues,
-            ed,
-            ingles,
-            literatura
-        ]
+        livros.items(items)
 
-        livros.apd(cn, ch, m, l)
+        livros.apd()
+
+        print(livros.horario_day)
+
         context = livros.display()
 
 

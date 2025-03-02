@@ -1,6 +1,7 @@
 from openpyxl import load_workbook
 from datetime import date
 
+
 class Horario:
     def __init__(self):
         self.seg = []
@@ -11,8 +12,8 @@ class Horario:
         self.cur = None
         self.arq = load_workbook('Horario.xlsx')
         self.week_day = date.today()
-        self.us = None
-        self.extension_day = ''
+        self.today = None
+        self.extenso = ''
 
     def esc(self):
         escolha = int(input("1. A\n 2. B"))
@@ -57,7 +58,7 @@ class Horario:
 
         return day
             
-
+    # Pegar os itens do arquivo Horario
     def apd(self):
         self.esc()
 
@@ -65,55 +66,52 @@ class Horario:
             cont=0
             day = None
             for j in self.cur.rows:
+
                 if cont <= 0:
                     cont += 1
                     continue
+                
                 if not j[i].value:
                     continue
 
                 day = self.dia(i, j, day)
     
-    def week_day_extension(self) -> str:
+    # Adicionar o dia de hoje por extenso e pegar o horário do dia
+    def today_day(self) -> str:
         day = self.week_day.isoweekday()
-        extension_day = ''
+
         if not isinstance(day, int):
             raise ValueError('O valor deve ser INT!')
 
         match day:
             case 1:
-                self.extension_day += "segunda"
-                self.us = self.seg
+                self.extenso += "segunda"
+                self.today = self.seg
 
             case 2:
-                self.extension_day += 'terça'
-                self.us = self.ter
+                self.extenso += 'terça'
+                self.today = self.ter
 
             case 3:
-                self.extension_day += 'quarta'
-                self.us = self.qua
+                self.extenso += 'quarta'
+                self.today = self.qua
 
             case 4:
-                self.extension_day += 'quinta'
-                self.us = self.qui
+                self.extenso += 'quinta'
+                self.today = self.qui
 
             case 5:
-                self.extension_day += 'sexta'
-                self.us = self.sex
+                self.extenso += 'sexta'
+                self.today = self.sex
 
             case 6:
-                self.extension_day += 'sábado'
-                self.us = 'None2'
+                self.extenso += 'sábado'
+                self.today = None
 
             case 7:
-                self.extension_day += 'domingo'
-                self.us = 'Nonse'
+                self.extenso += 'domingo'
+                self.today = None
 
             case _:
-                self.extension_day = None
+                self.extenso = False
         
-
-    
-dia = Horario()
-dia.apd()
-dia.week_day_extension()
-print(dia.us, dia.extension_day)

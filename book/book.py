@@ -1,3 +1,4 @@
+from book.horario.ler import Horario
 
 class OrgLiv:
     def __init__(self):
@@ -6,7 +7,42 @@ class OrgLiv:
         self.m = []
         self.l = []
         self.it = []
+        self.dia = Horario()
     
+    def items(
+            self,
+            items:dict
+        ):
+        
+        self.cn = [
+            items['fisica'],
+            items['quimica'],
+            items['biologia']
+        ]
+
+        self.ch = [
+            items['sociologia'],
+            items['geografia'],
+            items['filosofia'],
+            items['historia']
+        ]       
+
+        self.m = [
+            items['matematica']
+        ]
+
+        self.l = [
+            items['portugues'],
+            items['ed'],
+            items['ingles'],
+            items['literatura']
+        ]
+
+    def horario_day(self):
+        self.dia.today_day
+        
+        print(self.dia.extenso)
+
     # Limpa de fato os itens
     @staticmethod
     def limp(it:list):
@@ -74,7 +110,6 @@ class OrgLiv:
         
     
     def display(self):
-        print(self.m)
         dcn = self.apresent(self.cn)
         dch = self.apresent(self.ch)
         dm = self.apresent(self.m)
