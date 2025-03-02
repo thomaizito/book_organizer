@@ -811,16 +811,26 @@
             
             </select>
 
+
+            <h1> <select required name="turma">
+                <option> </option>
+                <option> A </option>
+                <option> B </option>
+            </select> </h1>
+            
+
             <button type="submit"> Enviar </button>
         </form>
     </div>
 
     
+
     <h1>Hoje você vai levar: </h1>
     <p> Ciencias da natureza: {{context['cn']}} </p>
     <p> Ciencias Humanas: {{context['ch']}} </p>
     <p> Matemática: {{context['m']}} </p>
     <p> Linguagens: {{context['l']}} </p>
+    <p> {{horario}} </p>
 </body>
 
 

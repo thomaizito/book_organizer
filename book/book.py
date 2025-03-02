@@ -14,10 +14,8 @@ class OrgLiv:
             items:dict
         ):
         
-        self.cn = [
-            items['fisica'],
-            items['quimica'],
-            items['biologia']
+        self.cn = [items[f'{i}']
+                   for i in self.dia.today_day
         ]
 
         self.ch = [

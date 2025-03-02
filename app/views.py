@@ -1,11 +1,14 @@
 from flask import request, render_template
 from app import app
 from book.book import OrgLiv
+from book.horario.ler import Horario
+
 
 @app.route('/', methods=['GET', "POST"])
 def homepage():
     livros = OrgLiv()
     context = None
+    horario = None
     if request.method == "POST":
 
         fisica = [request.form['f1'].split(' '), request.form["f2"].split(' ')]
@@ -36,22 +39,29 @@ def homepage():
 
             'matematica': matematica,
             
-            'portugues': portugues,
-            'ed': ed,
+            'lingua portuguesa': portugues,
+            'educacao fisica': ed,
             'ingles': ingles,
             'literatura': literatura
         }
         
+        horario = Horario()
+        turma = request.args.get("turma")
 
-         
+        horario.esc(turma)
+        horario.today_day()
+        horario = horario.today
+
+        livros_do_dia = []
+
+        for i in horario:
+            if i in items.values:
+                livros_do_dia.append(items[i])
 
         livros.items(items)
 
         livros.apd()
 
-        print(livros.horario_day)
-
         context = livros.display()
 
-
-    return render_template('index.html', context=context)
+    return render_template('index.html', context=context, horario=horario)

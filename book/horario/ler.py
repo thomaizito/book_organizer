@@ -1,7 +1,6 @@
 from openpyxl import load_workbook
 from datetime import date
 
-
 class Horario:
     def __init__(self):
         self.seg = []
@@ -10,17 +9,17 @@ class Horario:
         self.qui = []
         self.sex = []
         self.cur = None
-        self.arq = load_workbook('Horario.xlsx')
+        self.arq = load_workbook(r'book/horario/Horario.xlsx')
         self.week_day = date.today()
         self.today = None
         self.extenso = ''
 
-    def esc(self):
-        escolha = int(input("1. A\n 2. B"))
-        if escolha == 1:
+    def esc(self, turma):
+
+        if turma == 'A':
             self.cur = self.arq['A']
 
-        elif escolha == 2:
+        elif turma == 'B':
             self.cur = self.arq['B']
 
         else:
@@ -60,7 +59,6 @@ class Horario:
             
     # Pegar os itens do arquivo Horario
     def apd(self):
-        self.esc()
 
         for i in range(5):
             cont=0
@@ -78,7 +76,9 @@ class Horario:
     
     # Adicionar o dia de hoje por extenso e pegar o horário do dia
     def today_day(self) -> str:
-        day = self.week_day.isoweekday()
+        self.apd()
+
+        day = self.week_day.isoweekday() - 6
 
         if not isinstance(day, int):
             raise ValueError('O valor deve ser INT!')
