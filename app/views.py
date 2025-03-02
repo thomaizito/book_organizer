@@ -46,21 +46,21 @@ def homepage():
         }
         
         horario = Horario()
-        turma = request.args.get("turma")
+        turma = request.form['turma']
 
         horario.esc(turma)
         horario.today_day()
         horario = horario.today
 
+
         livros_do_dia = []
 
         for i in horario:
-            if i in items.values:
-                livros_do_dia.append(items[i])
+            if i.lower() in items:
+                livros_do_dia.append(items[i.lower()])
+                
 
-        livros.items(items)
-
-        livros.apd()
+        livros.apd(livros_do_dia)
 
         context = livros.display()
 

@@ -15,7 +15,6 @@ class Horario:
         self.extenso = ''
 
     def esc(self, turma):
-
         if turma == 'A':
             self.cur = self.arq['A']
 
