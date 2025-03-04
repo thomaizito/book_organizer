@@ -52,7 +52,6 @@ def homepage():
         horario.today_day()
         horario = horario.today
 
-
         livros_do_dia = []
 
         for i in horario:
@@ -64,4 +63,4 @@ def homepage():
 
         context = livros.display()
 
-    return render_template('index.html', context=context, horario=horario)
+    return render_template('index.html', context=context, horario=horario, turma=turma)

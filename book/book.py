@@ -2,7 +2,11 @@ from book.horario.ler import Horario
 
 class OrgLiv:
     def __init__(self):
-        self.livros = []
+        self.livros = {}
+        self.cn = []
+        self.ch = []
+        self.m = []
+        self.l = []
         self.dia = Horario()
     
 
@@ -63,13 +67,35 @@ class OrgLiv:
 
     # Limpar todos os livros
     def apd(self, livros):
-        
         if livros:
             self.livros = self.limp(livros)
         
+    def all_books_apd(self, items):
+                
+        self.cn = [
+            items['fisica'],
+            items['quimica'],
+            items['biologia']
+        ]
 
+        self.ch = [
+            items['sociologia'],
+            items['geografia'],
+            items['filosofia'],
+            items['historia']
+        ]       
+
+        self.m = [
+            items['matematica']
+        ]
+
+        self.l = [
+            items['portugues'],
+            items['ed'],
+            items['ingles'],
+            items['literatura']
+        ]
 
     def display(self):
-        contexto = self.livros
-        
-        return contexto
+        print(self.livros)
+        return self.livros

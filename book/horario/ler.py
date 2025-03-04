@@ -70,14 +70,14 @@ class Horario:
                 
                 if not j[i].value:
                     continue
-
+                
                 day = self.dia(i, j, day)
     
     # Adicionar o dia de hoje por extenso e pegar o horário do dia
     def today_day(self) -> str:
         self.apd()
 
-        day = self.week_day.isoweekday() - 6
+        day = self.week_day.isoweekday()
 
         if not isinstance(day, int):
             raise ValueError('O valor deve ser INT!')
