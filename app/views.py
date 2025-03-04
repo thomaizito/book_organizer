@@ -52,11 +52,11 @@ def homepage():
         horario.today_day()
         horario = horario.today
 
-        livros_do_dia = []
+        livros_do_dia = {}
 
         for i in horario:
             if i.lower() in items:
-                livros_do_dia.append(items[i.lower()])
+                livros_do_dia[i.lower()] = items[i.lower()]
                 
 
         livros.apd(livros_do_dia)

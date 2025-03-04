@@ -77,7 +77,7 @@ class Horario:
     def today_day(self) -> str:
         self.apd()
 
-        day = self.week_day.isoweekday()
+        day = self.week_day.isoweekday() + 2
 
         if not isinstance(day, int):
             raise ValueError('O valor deve ser INT!')

@@ -3,30 +3,78 @@ from book.horario.ler import Horario
 class OrgLiv:
     def __init__(self):
         self.livros = {}
+        self.cn_flag = ['fisica',
+                   'quimica',
+                   'biologia']
+        
+        self.ch_flag = ['sociologia',
+                   'geografia',
+                   'filosofia',
+                   'historia']
+        
+        self.m_flag = ['matematica']
+
+        self.l_flag = ['portugues',
+                  'educacao fisica',
+                  'ingles',
+                  'literatura']
+        
         self.cn = []
         self.ch = []
         self.m = []
         self.l = []
+        
         self.dia = Horario()
     
-
     def horario_day(self):
         self.dia.today_day
         
         print(self.dia.extenso)
 
+
+
     # Limpa de fato os itens
-    @staticmethod
-    def limp(it:list):
+    def limp(self, it:dict):
         it_ret = it
         flag = set()
+        print(it_ret)
 
-        for lista in it:
-            for inner in lista:
-                flag.add(tuple(inner))
+        for lista in it.items():
+            for inner in lista[1]:
+                if lista[1] == ['']:
+                    continue
+
+            self.verification_ordenation(lista)
         
         it_ret = list(flag)
         return it_ret
+
+    def verification_ordenation(self, name:tuple):
+        if name[0] in self.cn_flag:
+            if name[1] not in self.cn:
+                self.cn.append(name[1])
+            else:
+                return
+
+        elif name[0] in self.ch_flag:
+            if name[1] not in self.ch:
+                self.ch.append(name[1])
+            else:
+                return 
+
+        elif name[0] in self.m_flag:
+            if name[1] not in self.m:
+                self.m.append(name[1])
+            else:
+                return
+
+        elif name[0] in self.l_flag:
+            if name[1] not in self.l:
+                self.l.append(name[1])
+            else:
+                return 
+        
+
 
     # Deixa de forma apresentável
     @staticmethod 
@@ -49,32 +97,12 @@ class OrgLiv:
         if livros:
             self.livros = self.limp(livros)
         
-    def all_books_apd(self, items):
-                
-        self.cn = [
-            items['fisica'],
-            items['quimica'],
-            items['biologia']
-        ]
-
-        self.ch = [
-            items['sociologia'],
-            items['geografia'],
-            items['filosofia'],
-            items['historia']
-        ]       
-
-        self.m = [
-            items['matematica']
-        ]
-
-        self.l = [
-            items['portugues'],
-            items['ed'],
-            items['ingles'],
-            items['literatura']
-        ]
 
     def display(self):
-        print(self.livros)
-        return self.livros
+        
+        print(self.cn,
+              self.ch,
+              self.m,
+              self.l)
+        context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
+        return context
