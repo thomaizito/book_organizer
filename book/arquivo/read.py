@@ -1,19 +1,48 @@
 class Read:
     def __init__(self, arq):
         self.arq = arq
+        self.items:dict = {
+            'fisica': [],
+            'quimica': [],
+            'biologia': [],
+            'sociologia': [],
 
-    def validation(self):
-        gerator = self.reading()
-        
+            'geografia': [],
+            'filosofia': [],
+            'historia': [],
+
+            'matematica': [],
+            
+            'lingua portuguesa': [],
+            'educacao fisica': [],
+            'ingles': [],
+            'literatura': []
+        }
         
 
     def reading(self):
         with open(self.arq) as arq:
+            listinha = {}
             for linha in arq:
-                valores = linha.rstrip().split('|')
-                sla = list(linha.rstrip().split())
-                print(sla)
-    
-leitor = Read('livros.txt')
+                item1, item2 = None, None
+                linha = linha.rstrip().split(':')
+                lista = linha[1].split(';')
+                if not len(lista) <= 1:
+                    item2 = tuple(lista[1].split(','))
+                
+                item1 = tuple(lista[0].split(','))
 
-print(leitor.reading())
+                listinha[linha[0]] = [item1, item2] if item2 else [item1]
+            
+            print(listinha)
+                
+                
+
+
+            
+            
+            
+    
+leitor = Read('./book/arquivo/livros.txt')
+
+leitor.reading()
