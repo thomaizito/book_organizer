@@ -1,4 +1,5 @@
 from book.horario.ler import Horario
+from book.arquivo.read import Read
 
 class OrgLiv:
     def __init__(self):
@@ -28,6 +29,7 @@ class OrgLiv:
         self.l = set()
         
         self.dia = Horario()
+        self.memory = Read('./book/arquivo/livros.txt')
     
     def horario_day(self):
         self.dia.today_day
@@ -39,10 +41,9 @@ class OrgLiv:
         for lista in it.items():
             if lista[1] == ['']:
                 continue
+            self.verification_ordering(lista)
 
-            self.verification_ordenation(lista)
-
-    def verification_ordenation(self, name:tuple):
+    def verification_ordering(self, name:tuple):
         if name[0] in self.cn_flag:
             for i in name[1]:
                 self.cn.add(tuple(i)) if not i == [''] else 0
@@ -72,3 +73,14 @@ class OrgLiv:
               self.l)
         context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
         return context
+
+    def memory_books(self):
+        listinha = self.memory.reading()
+        for i in listinha.items():
+            print(i)
+            self.verification_ordering(i)
+
+    
+sla = OrgLiv()
+
+sla.memory_books()

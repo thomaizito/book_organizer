@@ -34,15 +34,4 @@ class Read:
 
                 listinha[linha[0]] = [item1, item2] if item2 else [item1]
             
-            print(listinha)
-                
-                
-
-
-            
-            
-            
-    
-leitor = Read('./book/arquivo/livros.txt')
-
-leitor.reading()
+            return listinha

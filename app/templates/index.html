@@ -808,10 +808,14 @@
 
             <br><br><br>
 
+            <button type="submit"> Enviar </button>
+
+        </form>
+    </div>
+
+    <div>
+        <form method="POST">
             
-            </select>
-
-
             <h1> <select required name="turma">
                 <option> {{turma}} </option>
                 <option>A</option>
@@ -819,11 +823,10 @@
             </select> </h1>
             
 
-            <button type="submit"> Enviar </button>
+            <button type="submit"> Ver horario </button>
         </form>
     </div>
 
-    
 
     <h1>Hoje você vai levar: </h1>
         {% if context['cn'] %}

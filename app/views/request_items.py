@@ -1,16 +1,10 @@
 from flask import request, render_template
-from app import app
-from book.book import OrgLiv
-from book.horario.ler import Horario
+from . import request_py   
+from . import Livro
 
-
-@app.route('/', methods=['GET', "POST"])
-def homepage():
-    livros = OrgLiv()
-    context = None
-    horario = None
+@request_py.route('/request')
+def apd():
     if request.method == "POST":
-
         fisica = [request.form['f1'].split(' '), request.form["f2"].split(' ')]
         quimica = [request.form['q1'].split(' '), request.form['q2'].split(' ')]
         biologia = [request.form['b1'].split(' '), request.form['b2'].split(' ')]
@@ -26,7 +20,7 @@ def homepage():
         ed = [request.form['ed1'].split(' '), request.form['ed2'].split(' ')]
         ingles = [request.form['i1'].split(' '), request.form['i2'].split(' ')]
         literatura = [request.form['li1'].split(' '), request.form['li2'].split(' ')]
-        
+
         items:dict = {
             'fisica': fisica,
             'quimica': quimica,
@@ -44,23 +38,5 @@ def homepage():
             'ingles': ingles,
             'literatura': literatura
         }
-        
-        horario = Horario()
-        turma = request.form['turma']
 
-        horario.esc(turma)
-        horario.today_day()
-        horario = horario.today
-
-        livros_do_dia = {}
-
-        for i in horario:
-            if i.lower() in items:
-                livros_do_dia[i.lower()] = items[i.lower()]
-                
-
-        livros.apd(livros_do_dia)
-
-        context = livros.display()
-
-    return render_template('index.html', context=context, horario=horario, turma=turma)
+        return items
