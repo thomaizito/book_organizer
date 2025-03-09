@@ -1,5 +1,4 @@
 from flask import Flask
-from book.book import OrgLiv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -11,4 +10,4 @@ app.config['SQLALCHEMY_DATABASE_TRACK_MODIFICATIONS'] =  False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from .views import homepage
+from app.views import homepage

@@ -1,3 +1,0 @@
-matematica:fgb,1;fgb, 4
-lingua portugues:fic,2
-ingels:fic,1;fic,3

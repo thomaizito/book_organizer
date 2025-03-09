@@ -1,14 +1,14 @@
 from flask import request, render_template
-from app import app
+from app import app, db
 from book.book import OrgLiv
 from book.horario.ler import Horario
-
 
 @app.route('/', methods=['GET', "POST"])
 def homepage():
     livros = OrgLiv()
     context = None
     horario = None
+    
     if request.method == "POST":
 
         fisica = [request.form['f1'].split(' '), request.form["f2"].split(' ')]
@@ -45,8 +45,11 @@ def homepage():
             'literatura': literatura
         }
         
+        
+
         horario = Horario()
         turma = request.form['turma']
+
 
         horario.esc(turma)
         horario.today_day()
@@ -58,9 +61,9 @@ def homepage():
             if i.lower() in items:
                 livros_do_dia.append(items[i.lower()])
                 
-
+        livros.up_books_db(livros, turma)
         livros.apd(livros_do_dia)
 
         context = livros.display()
 
-    return render_template('index.html', context=context, horario=horario, turma=turma)
+    return render_template('index.html', context=context, horario=horario)

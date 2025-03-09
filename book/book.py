@@ -1,15 +1,17 @@
 from book.horario.ler import Horario
-from book.arquivo.read import Read
+from book.database.write import Write
 
 class OrgLiv:
     def __init__(self):
         self.livros = {}
-        self.cn_flag = ['fisica',
+        self.cn_flag = [
+                   'fisica',
                    'quimica',
                    'biologia'
                    ]
         
-        self.ch_flag = ['sociologia',
+        self.ch_flag = [
+                   'sociologia',
                    'geografia',
                    'filosofia',
                    'historia'
@@ -17,7 +19,8 @@ class OrgLiv:
         
         self.m_flag = ['matematica']
 
-        self.l_flag = ['portugues',
+        self.l_flag = [
+                  'portugues',
                   'educacao fisica',
                   'ingles',
                   'literatura'
@@ -29,19 +32,12 @@ class OrgLiv:
         self.l = set()
         
         self.dia = Horario()
-        self.memory = Read('./book/arquivo/livros.txt')
-    
+        self.writedb = Write()
+
     def horario_day(self):
         self.dia.today_day
         
-        print(self.dia.extenso)
-
-    # Limpa de fato os itens
-    def limp(self, it:dict):
-        for lista in it.items():
-            if lista[1] == ['']:
-                continue
-            self.verification_ordering(lista)
+        return self.dia.extenso    
 
     def verification_ordering(self, name:tuple):
         if name[0] in self.cn_flag:
@@ -62,8 +58,10 @@ class OrgLiv:
 
     # Limpar todos os livros
     def apd(self, livros):
-        if livros:
-            self.livros = self.limp(livros)
+        for lista in it.items():
+            if lista[1] == ['']:
+                continue
+            self.verification_ordering(lista)
         
     def display(self):
         
@@ -74,13 +72,18 @@ class OrgLiv:
         context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
         return context
 
-    def memory_books(self):
-        listinha = self.memory.reading()
-        for i in listinha.items():
-            print(i)
-            self.verification_ordering(i)
+    def up_books_db(self, items, turma):
+        self.livros = items
 
-    
-sla = OrgLiv()
+        if turma == "A":
+            self.up_db_A(self.livros)
+            return True
+        
+        self.up_db_B(self.livros)
+        
 
-sla.memory_books()
+    def up_db_A(self):
+        self.writedb.writing_A(self.livros)
+        
+    def up_db_B(self):
+        self.writedb.writing_B(self.livros)
