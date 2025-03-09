@@ -1,12 +1,3 @@
-lingua portuguesa:fgb,1;fgb,3
-literatura:fic,2
-matematica:fgb,2
-fisica:fgb,2
-quimica:fgb,1
-biologia:fgb,1
-historia:fgb,1
-geografia:fgb,4
-sociologia:fic,1;fic,2
-filosofia:fic,1
-artes:fic,1
-ingles:fic,1
+matematica:fgb,1;fgb, 4
+lingua portugues:fic,2
+ingels:fic,1;fic,3
