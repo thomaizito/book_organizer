@@ -20,6 +20,7 @@ def apd():
         ed = [request.form['ed1'].split(' '), request.form['ed2'].split(' ')]
         ingles = [request.form['i1'].split(' '), request.form['i2'].split(' ')]
         literatura = [request.form['li1'].split(' '), request.form['li2'].split(' ')]
+        artes = [request.form['a1'].split(' '), request.form['a2'].split(' ')]
 
         items:dict = {
             'fisica': fisica,

@@ -14,4 +14,4 @@ class Livro:
     def booky(self):
         pass
 
-from . import booky, request_items
+from . import request_items
