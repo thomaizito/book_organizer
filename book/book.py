@@ -1,5 +1,6 @@
 from book.horario.ler import Horario
 from book.database.write import Write
+from book.database.read import Read
 
 class OrgLiv:
     def __init__(self):
@@ -33,6 +34,7 @@ class OrgLiv:
         
         self.dia = Horario()
         self.writedb = Write()
+        self.readdb = Read()
 
     def horario_day(self):
         self.dia.today_day
@@ -76,14 +78,10 @@ class OrgLiv:
         self.livros = items
 
         if turma == "A":
-            self.up_db_A(self.livros)
+            self.writedb.writing_A(self.livros)
             return True
         
-        self.up_db_B(self.livros)
-        
+        self.writedb.writing_B(self.livros)
 
-    def up_db_A(self, items):
-        self.writedb.writing_A(items)
-        
-    def up_db_B(self, items):
-        self.writedb.writing_B(items)
+    def down_books_db(self, turma):
+        self.livros = Read().reading(turma)

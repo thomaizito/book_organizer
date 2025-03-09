@@ -3,11 +3,11 @@ from app import app, db
 from book.book import OrgLiv
 from book.horario.ler import Horario
 
-@app.route('/', methods=['GET', "POST"])
+@app.route('/sla/', methods=['GET', "POST"])
 def homepage():
     livros = OrgLiv()
     context = None
-    horario = None
+    horario = Horario()
     
     if request.method == "POST":
 
@@ -47,25 +47,57 @@ def homepage():
             'literatura': literatura
         }
         
-        
-
-        horario = Horario()
         turma = request.form['turma']
 
 
-        horario.esc(turma)
-        horario.today_day()
-        horario = horario.today
-
-        livros_do_dia = {}
-
-        for i in horario:
-            if i in items.items():
-                livros_do_dia.update(i)
                 
         livros.up_books_db(items, turma)
-        livros.apd(livros_do_dia)
+        
 
         context = livros.display()
+    
+    if request.method == "GET":
+        try: 
+            turm = request.args.get('turma')
+        
+            items:dict = [
+            'fisica',
+            'quimica',
+            'biologia',
+            'sociologia',
+
+            'geografia',
+            'filosofia',
+            'historia',
+
+            'matematica',
+            
+            'lingua portuguesa',
+            'educacao fisica',
+            'ingles',
+            'artes',
+            'literatura'
+        ]
+
+            items:dict = livros.down_books_db()
+            
+
+            horario.esc(turm)
+            horario.today_day()
+            horario = horario.today
+
+            livros_do_dia = {}
+
+            for i in horario:
+                if i in items:
+                    livros_do_dia.update(i)
+
+            livros.apd(livros_do_dia)
+
+            context = livros.display()
+
+        except Exception as e:
+            print(horario)
+            print(e)
 
     return render_template('index.html', context=context, horario=horario)

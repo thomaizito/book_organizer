@@ -1,39 +1,35 @@
-
+from app import app, db
+from app.models import Livros_A, Livros_B
 
 class Read:
-    def __init__(self, arq):
-        self.arq = arq
-        self.items:dict = {
-            'fisica': [],
-            'quimica': [],
-            'biologia': [],
-            'sociologia': [],
+    def __init__(self):
+        self.items = {}
+    
+    def reading(self, turma):
 
-            'geografia': [],
-            'filosofia': [],
-            'historia': [],
+        with app.app_context():
+            if turma == "A":
+                livros = Livros_A.query.get(1)
+            else:
+                livros = Livros_B.query.get(1)
 
-            'matematica': [],
+            self.items = {
+                'fisica': livros.fisica,
+                'quimica': livros.quimica,
+                'biologia': livros.biologia,
+
+                'sociologia': livros.sociologia,
+                'geografia': livros.geografia,
+                'filosofia': livros.filosofia,
+                'historia': livros.historia,
+
+                'matematica': livros.matematica,
+
+                'lingua portugues': livros.portugues,
+                'educacao fisica': livros.ed,
+                'ingles': livros.ingles,
+                'literatura': livros.literatura,
+                'artes': livros.artes
+            }
             
-            'lingua portuguesa': [],
-            'educacao fisica': [],
-            'ingles': [],
-            'literatura': []
-        }
-        
-
-    def reading(self):
-        with open(self.arq) as arq:
-            listinha = {}
-            for linha in arq:
-                item1, item2 = None, None
-                linha = linha.rstrip().split(':')
-                lista = linha[1].split(';')
-                if not len(lista) <= 1:
-                    item2 = tuple(lista[1].split(','))
-                
-                item1 = tuple(lista[0].split(','))
-
-                listinha[linha[0]] = [item1, item2] if item2 else [item1]
-            
-            return listinha
+            return self.items
