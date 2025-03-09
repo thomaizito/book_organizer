@@ -8,7 +8,10 @@ class Write:
     
     def writing_A(self, items:dict):
         self.items = items
-        final = {i[0]: str(i[1]) for i in items.values()}
+        final = {i[0]: str(i[1]) for i in self.items.items()}
+
+        for i in final:
+            print(i)
 
         with app.app_context():
 
@@ -24,8 +27,8 @@ class Write:
 
                 matematica = final['matematica'],
 
-                portugues = final['portugues'],
-                ed = final['ed'],
+                portugues = final['lingua portuguesa'],
+                ed = final['educacao fisica'],
                 ingles = final['ingles'],
                 literatura = final['literatura'],
                 artes = final['artes']
@@ -36,7 +39,7 @@ class Write:
     
     def writing_B(self, items:dict):
         self.items = items
-        final = {i[0]: str(i[1]) for i in items.values()}
+        final = {i[0]: str(i[1]) for i in self.items.values()}
 
         with app.app_context():
 

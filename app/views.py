@@ -26,6 +26,7 @@ def homepage():
         ed = [request.form['ed1'].split(' '), request.form['ed2'].split(' ')]
         ingles = [request.form['i1'].split(' '), request.form['i2'].split(' ')]
         literatura = [request.form['li1'].split(' '), request.form['li2'].split(' ')]
+        artes = [request.form['a1'].split(' '), request.form['a2'].split(' ')]
         
         items:dict = {
             'fisica': fisica,
@@ -42,6 +43,7 @@ def homepage():
             'lingua portuguesa': portugues,
             'educacao fisica': ed,
             'ingles': ingles,
+            'artes': artes,
             'literatura': literatura
         }
         
@@ -55,13 +57,13 @@ def homepage():
         horario.today_day()
         horario = horario.today
 
-        livros_do_dia = []
+        livros_do_dia = {}
 
         for i in horario:
-            if i.lower() in items:
-                livros_do_dia.append(items[i.lower()])
+            if i in items.items():
+                livros_do_dia.update(i)
                 
-        livros.up_books_db(livros, turma)
+        livros.up_books_db(items, turma)
         livros.apd(livros_do_dia)
 
         context = livros.display()

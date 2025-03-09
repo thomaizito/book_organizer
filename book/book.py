@@ -58,7 +58,7 @@ class OrgLiv:
 
     # Limpar todos os livros
     def apd(self, livros):
-        for lista in it.items():
+        for lista in livros.items():
             if lista[1] == ['']:
                 continue
             self.verification_ordering(lista)
@@ -82,8 +82,8 @@ class OrgLiv:
         self.up_db_B(self.livros)
         
 
-    def up_db_A(self):
-        self.writedb.writing_A(self.livros)
+    def up_db_A(self, items):
+        self.writedb.writing_A(items)
         
-    def up_db_B(self):
-        self.writedb.writing_B(self.livros)
+    def up_db_B(self, items):
+        self.writedb.writing_B(items)
