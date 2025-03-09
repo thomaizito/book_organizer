@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 from flask import request, render_template
 from app import app
 from book.book import OrgLiv
@@ -66,4 +64,3 @@ def homepage():
         context = livros.display()
 
     return render_template('index.html', context=context, horario=horario, turma=turma)
->>>>>>> parent of db17f0d (Funcionou mais ou menos)

@@ -11,4 +11,4 @@ app.config['SQLALCHEMY_DATABASE_TRACK_MODIFICATIONS'] =  False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from app.views.request_items import apd
+from .views import homepage
