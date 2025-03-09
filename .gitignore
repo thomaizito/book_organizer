@@ -159,6 +159,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /ambiente_virtual
+<<<<<<< HEAD
 /app/__pycache__
 app/__pycache__/__init__.cpython-313.pyc
 app/__pycache__/views.cpython-313.pyc
+=======
+>>>>>>> parent of db17f0d (Funcionou mais ou menos)
