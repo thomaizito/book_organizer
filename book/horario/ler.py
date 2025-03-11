@@ -77,6 +77,7 @@ class Horario:
     def today_day(self) -> str:
         self.apd()
 
+        
         day = 1
 
         if not isinstance(day, int):
@@ -113,4 +114,6 @@ class Horario:
 
             case _:
                 self.extenso = False
+
+        return self.today
         

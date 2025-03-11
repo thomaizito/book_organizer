@@ -13,7 +13,7 @@ class Read:
             else:
                 livros = Livros_B.query.get(1)
 
-            self.items = {
+            self.items:dict = {
                 'fisica': livros.fisica,
                 'quimica': livros.quimica,
                 'biologia': livros.biologia,
@@ -25,7 +25,7 @@ class Read:
 
                 'matematica': livros.matematica,
 
-                'lingua portugues': livros.portugues,
+                'lingua portuguesa': livros.portugues,
                 'educacao fisica': livros.ed,
                 'ingles': livros.ingles,
                 'literatura': livros.literatura,

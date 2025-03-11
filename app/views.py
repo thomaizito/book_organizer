@@ -57,47 +57,48 @@ def homepage():
         context = livros.display()
     
     if request.method == "GET":
-        try: 
-            turm = request.args.get('turma')
+    
+        turm = request.args.get('turma')
+    
+        items:dict = [
+        'fisica',
+        'quimica',
+        'biologia',
+        'sociologia',
+
+        'geografia',
+        'filosofia',
+        'historia',
+
+        'matematica',
         
-            items:dict = [
-            'fisica',
-            'quimica',
-            'biologia',
-            'sociologia',
+        'lingua portuguesa',
+        'educacao fisica',
+        'ingles',
+        'artes',
+        'literatura'
+    ]
 
-            'geografia',
-            'filosofia',
-            'historia',
+        items:dict = livros.down_books_db(turm)
 
-            'matematica',
-            
-            'lingua portuguesa',
-            'educacao fisica',
-            'ingles',
-            'artes',
-            'literatura'
-        ]
+        horario.esc(turm)
+        horario = horario.today_day()
+        
 
-            items:dict = livros.down_books_db()
-            
+        livros_do_dia = {}
+        
 
-            horario.esc(turm)
-            horario.today_day()
-            horario = horario.today
-
-            livros_do_dia = {}
-
-            for i in horario:
-                if i in items:
+        for i in horario:
+            if i in items:
+                if items[i] in livros_do_dia:
                     livros_do_dia.update(i)
+                    print(livros_do_dia[i])
 
-            livros.apd(livros_do_dia)
 
-            context = livros.display()
+        livros.apd(livros_do_dia)
+        livros.horario_books_db(livros)
 
-        except Exception as e:
-            print(horario)
-            print(e)
+        context = livros.display()
+
 
     return render_template('index.html', context=context, horario=horario)

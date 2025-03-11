@@ -37,7 +37,7 @@ class OrgLiv:
         self.readdb = Read()
 
     def horario_day(self):
-        self.dia.today_day
+        dia = self.dia.today_day()
         
         return self.dia.extenso    
 
@@ -85,3 +85,20 @@ class OrgLiv:
 
     def down_books_db(self, turma):
         self.livros = Read().reading(turma)
+        flag = {}
+
+        for i in self.livros.items():
+            flag[i[0]] = eval(i[1])
+        
+        self.livros = flag
+
+        return self.livros
+
+    def horario_books_db(self, turma):
+        if not self.livros:
+            Read().reading(turma)
+        
+        self.apd(self.livros)
+        
+
+        
