@@ -25,8 +25,8 @@ class Read:
 
                 'matematica': livros.matematica,
 
-                'lingua portuguesa': livros.portugues,
-                'educacao fisica': livros.ed,
+                'portugues': livros.portugues,
+                'ed': livros.ed,
                 'ingles': livros.ingles,
                 'literatura': livros.literatura,
                 'artes': livros.artes

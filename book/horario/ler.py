@@ -77,8 +77,11 @@ class Horario:
     def today_day(self) -> str:
         self.apd()
 
-        
-        day = 1
+        flag = self.week_day.isoweekday() + 1
+        if flag > 7:
+            day = 1
+        else:
+            day = flag
 
         if not isinstance(day, int):
             raise ValueError('O valor deve ser INT!')

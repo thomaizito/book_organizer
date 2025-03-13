@@ -72,14 +72,14 @@ def homepage():
 
         'matematica',
         
-        'lingua portuguesa',
-        'educacao fisica',
+        'portugues',
+        'ed',
         'ingles',
         'artes',
         'literatura'
     ]
 
-        items:dict = livros.down_books_db(turm)
+        livros_all:dict = livros.down_books_db(turm)
 
         horario.esc(turm)
         horario = horario.today_day()
@@ -89,14 +89,12 @@ def homepage():
         
 
         for i in horario:
-            if i in items:
-                if items[i] in livros_do_dia:
-                    livros_do_dia.update(i)
-                    print(livros_do_dia[i])
+            if i.lower() in items:
+                livros_do_dia.update({i.lower(): livros_all[i.lower()]})
 
 
+        print(livros.ch, livros.cn, livros.m, livros.l)
         livros.apd(livros_do_dia)
-        livros.horario_books_db(livros)
 
         context = livros.display()
 

@@ -22,7 +22,7 @@ class OrgLiv:
 
         self.l_flag = [
                   'portugues',
-                  'educacao fisica',
+                  'ed',
                   'ingles',
                   'literatura'
                   ]
@@ -37,7 +37,7 @@ class OrgLiv:
         self.readdb = Read()
 
     def horario_day(self):
-        dia = self.dia.today_day()
+        self.dia.today_day()
         
         return self.dia.extenso    
 
@@ -59,7 +59,7 @@ class OrgLiv:
                 self.l.add(tuple(i)) if not i == [''] else 0
 
     # Limpar todos os livros
-    def apd(self, livros):
+    def apd(self, livros:dict):
         for lista in livros.items():
             if lista[1] == ['']:
                 continue
@@ -67,11 +67,8 @@ class OrgLiv:
         
     def display(self):
         
-        print(self.cn,
-              self.ch,
-              self.m,
-              self.l)
         context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
+        print(context, self.livros)
         return context
 
     def up_books_db(self, items, turma):
@@ -80,7 +77,6 @@ class OrgLiv:
         if turma == "A":
             self.writedb.writing_A(self.livros)
             return True
-        
         self.writedb.writing_B(self.livros)
 
     def down_books_db(self, turma):
@@ -89,16 +85,9 @@ class OrgLiv:
 
         for i in self.livros.items():
             flag[i[0]] = eval(i[1])
-        
         self.livros = flag
 
         return self.livros
-
-    def horario_books_db(self, turma):
-        if not self.livros:
-            Read().reading(turma)
-        
-        self.apd(self.livros)
         
 
         
