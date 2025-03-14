@@ -886,19 +886,50 @@
                 <option>A</option>
                 <option>B</option>
             </select> </h1>
+
+            {% if not weekday %}
+                <h1>
+                    <select name="dayweek">
+                        <optione>  </optione>
+                        <option> Segunda </option>
+                        <option> Terça </option>
+                        <option> Quarta </option>
+                        <option> Quinta </option>
+                        <option> Sexta </option>
+                    </select>
+                </h1>
+            {%endif%}
             
 
             <button type="submit"> Ver horario </button>
         </form>
     </div>
 
+    {% if context %}
+        <h1>Hoje você vai levar: </h1>
+    {%endif%}
 
-    <h1>Hoje você vai levar: </h1>
-    <p> Ciencias da natureza: {{context['cn']}} </p>
-    <p> Ciencias Humanas: {{context['ch']}} </p>
-    <p> Matemática: {{context['m']}} </p>
-    <p> Linguagens: {{context['l']}} </p>
-    <p> {{horario}} </p>
+    {% if context['cn'] %}
+        <p> Ciencias da natureza: {{context['cn']}} </p>
+    {% endif %}
+
+    {% if context['ch'] %}
+        <p> Ciencias Humanas: {{context['ch']}} </p>
+    {% endif %}
+
+    {% if context['m'] %}
+        <p> Matemática: {{context['m']}} </p>
+    {% endif %}
+
+    {% if context['l'] %}
+        <p> Linguagens: {{context['l']}} </p>
+    {% endif %}
+
+    {% if horario %}
+        {% for i in horario %}
+            <p> {{i}} </p>
+        {% endfor %}
+    {%endif%}
 </body>
 
 

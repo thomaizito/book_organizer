@@ -37,7 +37,8 @@ class OrgLiv:
         self.readdb = Read()
 
     def horario_day(self):
-        self.dia.today_day()
+        if not self.dia.today_day():
+            self.dia.extenso = False
         
         return self.dia.extenso    
 

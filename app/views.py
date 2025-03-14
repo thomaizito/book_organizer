@@ -8,6 +8,7 @@ def homepage():
     livros = OrgLiv()
     context = None
     horario = Horario()
+    weekday = True
     
     if request.method == "POST":
 
@@ -78,25 +79,31 @@ def homepage():
         'artes',
         'literatura'
     ]
+        if not horario:
+            weekday = False
+        
+        try:
+            dia = request.args.get('dayweek')
+        except ValueError:
+            weekday = False
+            dia = None
 
         livros_all:dict = livros.down_books_db(turm)
 
         horario.esc(turm)
-        horario = horario.today_day()
+        horario = horario.today_day(dia)
         
 
         livros_do_dia = {}
-        
 
         for i in horario:
             if i.lower() in items:
                 livros_do_dia.update({i.lower(): livros_all[i.lower()]})
 
-
-        print(livros.ch, livros.cn, livros.m, livros.l)
         livros.apd(livros_do_dia)
-
         context = livros.display()
+        
 
+            
 
-    return render_template('index.html', context=context, horario=horario)
+    return render_template('index.html', context=context, horario=horario, weekday=weekday)
