@@ -22,7 +22,7 @@ class Horario:
             self.cur = self.arq['B']
 
         else:
-            print("Erro! COloque um valor válido")
+            raise ValueError("SEM turma")
     
     def dia(self, i, j, day):
         match day:

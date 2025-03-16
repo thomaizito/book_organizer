@@ -879,7 +879,7 @@
     </div>
 
     <div>
-        <form method="GET">
+        <form name="poxa" method="GET">
             
             <h1> <select required name="turma">
                 <option> {{turma}} </option>
@@ -926,9 +926,7 @@
     {% endif %}
 
     {% if horario %}
-        {% for i in horario %}
-            <p> {{i}} </p>
-        {% endfor %}
+        <p> {{horario}} </p>
     {%endif%}
 </body>
 

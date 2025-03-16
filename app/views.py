@@ -93,7 +93,7 @@ def homepage():
         horario.esc(turm)
         horario = horario.today_day(dia)
         
-
+        
         livros_do_dia = {}
 
         for i in horario:
