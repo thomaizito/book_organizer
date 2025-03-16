@@ -42,6 +42,7 @@ class OrgLiv:
         
         return self.dia.extenso    
 
+
     def verification_ordering(self, name:tuple):
         if name[0] in self.cn_flag:
             for i in name[1]:
@@ -66,11 +67,12 @@ class OrgLiv:
                 continue
             self.verification_ordering(lista)
         
+
     def display(self):
         
         context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
-        print(context, self.livros)
         return context
+
 
     def up_books_db(self, items, turma):
         self.livros = items
@@ -80,15 +82,38 @@ class OrgLiv:
             return True
         self.writedb.writing_B(self.livros)
 
+
     def down_books_db(self, turma):
-        self.livros = Read().reading(turma)
-        flag = {}
+        try:
+            self.livros = Read().reading(turma)
+            flag = {}
 
-        for i in self.livros.items():
-            flag[i[0]] = eval(i[1])
-        self.livros = flag
+            for i in self.livros.items():
+                flag[i[0]] = eval(i[1])
+            self.livros = flag
 
-        return self.livros
+            return self.livros
         
+        except AttributeError:
+            self.livros = {
+            'fisica': [[''], ['']],
+            'quimica': [[''], ['']],
+            'biologia': [[''], ['']],
+            'sociologia': [[''], ['']],
+
+            'geografia': [[''], ['']],
+            'filosofia': [[''], ['']],
+            'historia': [[''], ['']],
+
+            'matematica': [[''], ['']],
+            
+            'portugues': [[''], ['']],
+            'ed': [[''], ['']],
+            'ingles': [[''], ['']],
+            'artes': [[''], ['']],
+            'literatura': [[''], ['']]
+        }
+    
+    
 
         

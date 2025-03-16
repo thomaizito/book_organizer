@@ -77,20 +77,24 @@ class Horario:
     def today_day(self, dia_específico=None) -> str: 
         self.apd()
 
-        day = self.week_day.isoweekday() + 1
+        flag = self.week_day.isoweekday() + 1
+        if flag > 7:
+            day = 1
+        else:
+            day = flag
 
         if dia_específico:
             match dia_específico.lower():
                 case 'segunda':
-                    self.today = self.seg
+                    day = 1
                 case 'terça':
-                    self.today = self.ter
+                    day = 2
                 case 'quarta':
-                    self.today = self.qua
+                    day = 3
                 case 'quinta':
-                    self.today = self.qui
+                    day = 4
                 case 'sexta':
-                    self.today = self.sex
+                    day = 5
                 case _:
                     self.today = None
 

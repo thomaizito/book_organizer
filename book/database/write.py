@@ -10,28 +10,28 @@ class Write:
         self.items = items
         final = {i[0]: str(i[1]) for i in self.items.items()}
 
+        
         with app.app_context():
 
-            final_livros = Livros_A(
-                fisica = final['fisica'],
-                quimica = final['quimica'],
-                biologia = final['biologia'],
+            livrosdb = Livros_A.query.get(1)
 
-                sociologia = final['sociologia'],
-                geografia = final['geografia'],
-                filosofia = final['filosofia'],
-                historia = final['historia'],
+            livrosdb.fisica = final['fisica']
+            livrosdb.quimica = final['quimica']
+            livrosdb.biologia = final['biologia']
 
-                matematica = final['matematica'],
+            livrosdb.sociologia = final['sociologia']
+            livrosdb.geografia = final['geografia']
+            livrosdb.filosofia = final['filosofia']
+            livrosdb.historia = final['historia']
 
-                portugues = final['lingua portuguesa'],
-                ed = final['educacao fisica'],
-                ingles = final['ingles'],
-                literatura = final['literatura'],
-                artes = final['artes']
-            )
+            livrosdb.matematica = final['matematica']
 
-            db.session.add(final_livros)
+            livrosdb.portugues = final['portugues']
+            livrosdb.ed = final['ed']
+            livrosdb.ingles = final['ingles']
+            livrosdb.literatura = final['literatura']
+            livrosdb.artes = final['artes']
+
             db.session.commit()
     
     def writing_B(self, items:dict):
@@ -40,25 +40,24 @@ class Write:
 
         with app.app_context():
 
-            final_livros = Livros_B(
-                fisica = final['fisica'],
-                quimica = final['quimica'],
-                biologia = final['biologia'],
+            livrosdb = Livros_B.query.get(1)
 
-                sociologia = final['sociologia'],
-                geografia = final['geografia'],
-                filosofia = final['filosofia'],
-                historia = final['historia'],
+            livrosdb.fisica = final['fisica']
+            livrosdb.quimica = final['quimica']
+            livrosdb.biologia = final['biologia']
 
-                matematica = final['matematica'],
+            livrosdb.sociologia = final['sociologia']
+            livrosdb.geografia = final['geografia']
+            livrosdb.filosofia = final['filosofia']
+            livrosdb.historia = final['historia']
 
-                portugues = final['lingua portuguesa'],
-                ed = final['educacao fisica'],
-                ingles = final['ingles'],
-                literatura = final['literatura'],
-                artes = final['artes']
-            )
+            livrosdb.matematica = final['matematica']
 
-            db.session.add(final_livros)
+            livrosdb.portugues = final['portugues']
+            livrosdb.ed = final['ed']
+            livrosdb.ingles = final['ingles']
+            livrosdb.literatura = final['literatura']
+            livrosdb.artes = final['artes']
+            
             db.session.commit()
     

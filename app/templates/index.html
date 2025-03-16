@@ -52,7 +52,8 @@
                             <div>
                                 Física: 
                                 <select name="f1" >
-                                    <option>{{context['fisica']}}</option>
+                                    <option> {{' '.join(livros['fisica'][0]) if not livros['fisica'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -82,7 +83,8 @@
                 
                                 
                                 <select name="f2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['fisica'][1]) if not livros['fisica'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -114,7 +116,8 @@
                                 
                                 Química: 
                                 <select name="q1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['quimica'][0]) if not livros['quimica'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -144,7 +147,8 @@
                 
                                 
                                 <select name="q2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['quimica'][1]) if not livros['quimica'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -176,7 +180,8 @@
                                 
                                 Biologia: 
                                 <select name="b1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['biologia'][0]) if not livros['biologia'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -206,7 +211,8 @@
                 
                                 
                                 <select name="b2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['biologia'][1]) if not livros['biologia'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -242,7 +248,8 @@
                             <div>
                                 Sociologia: 
                                 <select name="s1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['sociologia'][0]) if not livros['sociologia'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -272,7 +279,8 @@
                 
                                 
                                 <select name="s2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['sociologia'][1]) if not livros['sociologia'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -302,7 +310,8 @@
 
                                 História: 
                                 <select name="h1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['historia'][0]) if not livros['historia'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -332,7 +341,8 @@
                 
                                 
                                 <select name="h2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['historia'][1]) if not livros['historia'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -364,7 +374,8 @@
                                 
                                 Geografia: 
                                 <select name="g1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['geografia'][0]) if not livros['geografia'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -394,7 +405,8 @@
                 
                                 
                                 <select name="g2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['geografia'][1]) if not livros['geografia'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -426,7 +438,8 @@
                                 
                                 Filosofia: 
                                 <select name="fi1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['filosofia'][0]) if not livros['filosofia'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -456,7 +469,8 @@
                 
                                 
                                 <select name="fi2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['filosofia'][1]) if not livros['filosofia'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -490,7 +504,8 @@
 
                             <div>
                                 <select name="m1">
-                                    <option></option>
+                                    <option> {{' '.join(livros['matematica'][0]) if not livros['matematica'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                         <option>FGB 1</option>
                                         <option>FGB 2</option>
                                         <option>FGB 3</option>
@@ -519,7 +534,8 @@
                                 </select>
 
                                 <select name="m2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['matematica'][1]) if not livros['matematica'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                         <option>FGB 1</option>
                                         <option>FGB 2</option>
                                         <option>FGB 3</option>
@@ -554,7 +570,8 @@
                             <div>
                                 Portugues: 
                                 <select name="p1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['portugues'][0]) if not livros['portugues'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -584,7 +601,8 @@
                 
                                 
                                 <select name="p2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['portugues'][1]) if not livros['portugues'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -616,7 +634,8 @@
                                 
                                 Educação Física: 
                                 <select name="ed1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['ed'][0]) if not livros['ed'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -646,7 +665,8 @@
                 
                                 
                                 <select name="ed2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['ed'][1]) if not livros['ed'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -678,7 +698,8 @@
                                 
                                 Inglês: 
                                 <select name="i1" >
-                                    <option></option>
+                                    <option> {{' '.join(livros['ingles'][0]) if not livros['ingles'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -708,7 +729,8 @@
                 
                                 
                                 <select name="i2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['ingles'][1]) if not livros['ingles'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -740,7 +762,8 @@
                                 
                                 Literatura: 
                                 <select name="li1">
-                                    <option></option>
+                                    <option> {{' '.join(livros['literatura'][0]) if not livros['literatura'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -770,7 +793,8 @@
                 
                                 
                                 <select name="li2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['literatura'][1]) if not livros['literatura'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -800,7 +824,8 @@
 
                                 Artes: 
                                 <select name="a1">
-                                    <option></option>
+                                    <option> {{' '.join(livros['artes'][0]) if not livros['artes'][0] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>
@@ -830,7 +855,8 @@
                 
                                 
                                 <select name="a2">
-                                    <option></option>
+                                    <option> {{' '.join(livros['artes'][1]) if not livros['artes'][1] == [''] else ''}} </option>
+                                    <option>  </option>
                                     <option>FGB 1</option>
                                     <option>FGB 2</option>
                                     <option>FGB 3</option>

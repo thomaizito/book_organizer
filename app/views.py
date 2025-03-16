@@ -9,6 +9,7 @@ def homepage():
     context = None
     horario = Horario()
     weekday = True
+    turm = None
     
     if request.method == "POST":
 
@@ -41,27 +42,27 @@ def homepage():
 
             'matematica': matematica,
             
-            'lingua portuguesa': portugues,
-            'educacao fisica': ed,
+            'portugues': portugues,
+            'ed': ed,
             'ingles': ingles,
             'artes': artes,
             'literatura': literatura
         }
         
-        turma = request.form['turma']
+        turm = request.form['turma']
 
 
                 
-        livros.up_books_db(items, turma)
+        livros.up_books_db(items, turm)
         
 
         context = livros.display()
     
+
     if request.method == "GET":
-    
         turm = request.args.get('turma')
     
-        items:dict = [
+        items = [
         'fisica',
         'quimica',
         'biologia',
@@ -78,32 +79,28 @@ def homepage():
         'ingles',
         'artes',
         'literatura'
-    ]
-        if not horario:
-            weekday = False
-        
-        try:
-            dia = request.args.get('dayweek')
-        except ValueError:
-            weekday = False
-            dia = None
+    ]   
+        dia = request.args.get('dayweek')
 
-        livros_all:dict = livros.down_books_db(turm)
+        livros_all = livros.down_books_db(turm)
 
-        horario.esc(turm)
-        horario = horario.today_day(dia)
-        
-        
-        livros_do_dia = {}
+        if livros_all:
 
-        for i in horario:
-            if i.lower() in items:
-                livros_do_dia.update({i.lower(): livros_all[i.lower()]})
+            horario.esc(turm)
+            horario = horario.today_day(dia)
+            
+            if not horario:
+                weekday = horario
+            else:
+                livros_do_dia = {}
 
-        livros.apd(livros_do_dia)
-        context = livros.display()
+                for i in horario:
+                    if i.lower() in items:
+                        livros_do_dia.update({i.lower(): livros_all[i.lower()]})
+                livros.apd(livros_do_dia)
+                context = livros.display()
         
 
             
 
-    return render_template('index.html', context=context, horario=horario, weekday=weekday)
+    return render_template('index.html', context=context, horario=horario, weekday=weekday, turma=turm, livros=livros.livros)
