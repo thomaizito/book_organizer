@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Pode ser meme ou tem que ser sério</title>
+    <title>Organizador de Livros</title>
 
     <style>
         body {
@@ -932,7 +932,7 @@
     </div>
 
     {% if context %}
-        <h1>Hoje você vai levar: </h1>
+        <h1>Você vai levar: </h1>
     {%endif%}
 
     {% if context['cn'] %}
@@ -950,6 +950,10 @@
     {% if context['l'] %}
         <p> Linguagens: {{context['l']}} </p>
     {% endif %}
+
+    {% if interioridade %}
+        <p> -- Livro de Interioridade -- </p>
+    {%endif%}
 
     {% if horario %}
         <p> {{horario}} </p>

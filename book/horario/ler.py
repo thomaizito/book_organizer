@@ -77,7 +77,7 @@ class Horario:
     def today_day(self, dia_específico=None) -> str: 
         self.apd()
 
-        flag = self.week_day.isoweekday() + 1
+        flag = 6
         if flag > 7:
             day = 1
         else:

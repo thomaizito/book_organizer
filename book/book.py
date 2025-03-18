@@ -70,8 +70,11 @@ class OrgLiv:
 
     def display(self):
         
-        context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
-        return context
+        if self.cn or self.ch or self.l or self.m:
+            context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
+            return context
+        
+        return None
 
 
     def up_books_db(self, items, turma):

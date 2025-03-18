@@ -3,14 +3,15 @@ from app import app, db
 from book.book import OrgLiv
 from book.horario.ler import Horario
 
-@app.route('/sla/', methods=['GET', "POST"])
+@app.route('/', methods=['GET', "POST"])
 def homepage():
     livros = OrgLiv()
     context = None
     horario = Horario()
     weekday = True
     turm = None
-    
+    interioridade = None
+
     if request.method == "POST":
 
         fisica = [request.form['f1'].split(' '), request.form["f2"].split(' ')]
@@ -78,7 +79,8 @@ def homepage():
         'ed',
         'ingles',
         'artes',
-        'literatura'
+        'literatura',
+        'interioridade'
     ]   
         dia = request.args.get('dayweek')
 
@@ -88,7 +90,7 @@ def homepage():
 
             horario.esc(turm)
             horario = horario.today_day(dia)
-            
+
             if not horario:
                 weekday = horario
             else:
@@ -96,11 +98,19 @@ def homepage():
 
                 for i in horario:
                     if i.lower() in items:
+                        if i.lower() == 'interioridade':
+                            interioridade = i.lower()
+                            continue
                         livros_do_dia.update({i.lower(): livros_all[i.lower()]})
+
                 livros.apd(livros_do_dia)
                 context = livros.display()
+
+        if not isinstance(horario, str):
+            horario = None
         
+                
 
             
 
-    return render_template('index.html', context=context, horario=horario, weekday=weekday, turma=turm, livros=livros.livros)
+    return render_template('index.html', context=context, horario=horario, weekday=weekday, turma=turm, livros=livros.livros, interioridade=interioridade)
