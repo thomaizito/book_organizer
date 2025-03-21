@@ -106,7 +106,7 @@ def homepage():
                 livros.apd(livros_do_dia)
                 context = livros.display()
 
-        if not isinstance(horario, str):
+        if not isinstance(horario, list):
             horario = None
         
                 

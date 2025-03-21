@@ -955,9 +955,9 @@
         <p> -- Livro de Interioridade -- </p>
     {%endif%}
 
-    {% if horario %}
-        <p> {{horario}} </p>
-    {%endif%}
+    {%for i in horario %}
+        <p> {{i}} </p>
+    {%endfor%}
 </body>
 
 
