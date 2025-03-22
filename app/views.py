@@ -10,7 +10,7 @@ def homepage():
     horario = Horario()
     weekday = True
     turm = None
-    interioridade = None
+    ot_livros = {'interioridade': False, 'itinerario': False}
 
     if request.method == "POST":
 
@@ -99,8 +99,13 @@ def homepage():
                 for i in horario:
                     if i.lower() in items:
                         if i.lower() == 'interioridade':
-                            interioridade = i.lower()
+                            ot_livros['interioridade'] = True
                             continue
+
+                        if i.lower() == 'itinerario':
+                            ot_livros['itinerario'] = True
+                            continue
+                        
                         livros_do_dia.update({i.lower(): livros_all[i.lower()]})
 
                 livros.apd(livros_do_dia)
@@ -113,4 +118,4 @@ def homepage():
 
             
 
-    return render_template('index.html', context=context, horario=horario, weekday=weekday, turma=turm, livros=livros.livros, interioridade=interioridade)
+    return render_template('index.html', context=context, horario=horario, weekday=weekday, turma=turm, livros=livros.livros, ot_livros=ot_livros)

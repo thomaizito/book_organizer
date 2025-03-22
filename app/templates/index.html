@@ -951,13 +951,20 @@
         <p> Linguagens: {{context['l']}} </p>
     {% endif %}
 
-    {% if interioridade %}
+    {% if ot_livros['interioridade'] %}
         <p> -- Livro de Interioridade -- </p>
     {%endif%}
 
-    {%for i in horario %}
-        <p> {{i}} </p>
-    {%endfor%}
+    {% if ot_livros['itinerario'] %}
+        <p> -- Itinerario -- </p>
+    {%endif%}
+
+    {% if horario %}
+        {%for i in horario %}
+            {{i}}
+        {%endfor%}
+    {%endif%}
+
 </body>
 
 
