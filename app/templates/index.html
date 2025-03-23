@@ -4,19 +4,7 @@
     <meta charset="UTF-8">
     <title>Organizador de Livros</title>
 
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        table {
-            align-items: start;
-            width: 100%;
-
-        }
-    </style>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -932,7 +920,7 @@
     </div>
 
     {% if context %}
-        <h1>Você vai levar: </h1>
+        <h1> Você vai levar: </h1>
     {%endif%}
 
     {% if context['cn'] %}
@@ -959,11 +947,13 @@
         <p> -- Itinerario -- </p>
     {%endif%}
     
-    {% if horario %}
-        {%for i in horario %}
-            {{i}}
-        {%endfor%}
-    {%endif%}
+    <div class="horario">
+        {% if horario %}
+            {%for i in horario %}
+                {{i}}
+            {%endfor%}
+        {%endif%}
+    </div>
 
 </body>
 
