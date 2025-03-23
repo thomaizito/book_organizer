@@ -936,19 +936,19 @@
     {%endif%}
 
     {% if context['cn'] %}
-        <p> Ciencias da natureza: {{context['cn']}} </p>
+        <p> Ciencias da natureza: {%for i in context['cn'] %}  {{" ".join(i)}} | {%endfor%} </p>
     {% endif %}
 
     {% if context['ch'] %}
-        <p> Ciencias Humanas: {{context['ch']}} </p>
+        <p> Ciencias Humanas: {%for i in context['ch'] %}  {{" ".join(i)}} |  {%endfor%}</p>
     {% endif %}
 
     {% if context['m'] %}
-        <p> Matemática: {{context['m']}} </p>
+        <p> Matemática: {%for i in context['m'] %}  {{" ".join(i)}} | {%endfor%} </p>
     {% endif %}
 
     {% if context['l'] %}
-        <p> Linguagens: {{context['l']}} </p>
+        <p> Linguagens: {%for i in context['l'] %}  {{" ".join(i)}} | {%endfor%} </p>
     {% endif %}
 
     {% if ot_livros['interioridade'] %}
