@@ -2,6 +2,11 @@ from openpyxl import load_workbook
 from datetime import date
 
 class Horario:
+    # self.seg -- self.sex == Matérias dos dias da semana
+    # self.cur == Matéria do dia que foi executado
+    # self.arq == Arquivo excell
+    # self.week_day == Objeto date
+    # self.today = 
     def __init__(self):
         self.seg = []
         self.ter = []
@@ -14,6 +19,7 @@ class Horario:
         self.today = None
         self.extenso = ''
 
+    # Adicionar qual a turma que o programa vai pegar no arquivo
     def esc(self, turma):
         if turma == 'A':
             self.cur = self.arq['A']
@@ -24,6 +30,7 @@ class Horario:
         else:
             raise ValueError("SEM turma")
     
+    #Match case interno para adicionar os valores em seus respectivos lugares
     def dia(self, i, j, day):
         match day:
             case 'SEG':
@@ -57,8 +64,7 @@ class Horario:
         return day
             
     # Pegar os itens do arquivo Horario
-    def apd(self):
-
+    def Materias_Horario(self):
         for i in range(5):
             cont=0
             day = None
@@ -73,18 +79,10 @@ class Horario:
                 
                 day = self.dia(i, j, day)
     
-    # Adicionar o dia de hoje por extenso e pegar o horário do dia
-    def today_day(self, dia_específico=None) -> str: 
-        self.apd()
-
-        flag = self.week_day.isoweekday() + 1
-        if flag > 7:
-            day = 1
-        else:
-            day = flag
-
-        if dia_específico:
-            match dia_específico.lower():
+    # Funcão interna para caso tenha um dia específico selecionado
+    @staticmethod
+    def Dia_Específico(day:int, dia_especifico:str):
+        match dia_especifico.lower():
                 case 'segunda':
                     day = 1
                 case 'terça':
@@ -96,10 +94,22 @@ class Horario:
                 case 'sexta':
                     day = 5
                 case _:
-                    self.today = None
+                    return None
+        return day
 
-        if not isinstance(day, int):
-            raise ValueError('O valor deve ser INT!')
+
+    # Adicionar o dia de hoje por extenso e pegar o horário do dia
+    def Dia_Horario(self, dia_especifico=None) -> str: 
+        self.Materias_Horario()
+
+        flag = self.week_day.isoweekday() + 1
+        day = 1 if flag > 7 else day = flag
+
+        if dia_especifico:
+            day = self.Dia_Específico(day, dia_especifico)
+
+            if not isinstance(day, int):
+                raise ValueError('O valor deve ser INT!')
 
         match day:
             case 1:
@@ -131,7 +141,6 @@ class Horario:
                 self.today = None
 
             case _:
-                self.extenso = False
-                
+                self.extenso = None
         return self.today
         
