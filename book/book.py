@@ -36,7 +36,7 @@ class OrgLiv:
         self.writedb = Write()
         self.readdb = Read()
 
-    def horario_day(self):
+    def horario_do_dia(self):
         if not self.dia.today_day():
             self.dia.extenso = False
         
@@ -79,12 +79,7 @@ class OrgLiv:
 
     def up_books_db(self, items, turma):
         self.livros = items
-
-        if turma == "A":
-            self.writedb.writing_A(self.livros)
-            return True
-        self.writedb.writing_B(self.livros)
-
+        self.writedb.writing(self.livros, turma)
 
     def down_books_db(self, turma):
         try:
