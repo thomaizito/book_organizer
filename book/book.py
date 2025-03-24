@@ -37,37 +37,32 @@ class OrgLiv:
         self.readdb = Read()
 
     def horario_do_dia(self):
-        if not self.dia.today_day():
+        if not self.dia.Materias_Horario():
             self.dia.extenso = False
         
         return self.dia.extenso    
 
-
-    def verification_ordering(self, name:tuple):
-        if name[0] in self.cn_flag:
-            for i in name[1]:
-                self.cn.add(tuple(i)) if not i == [''] else 0
-
-        elif name[0] in self.ch_flag:
-            for i in name[1]:
-                self.ch.add(tuple(i)) if not i == [''] else 0
-
-        elif name[0] in self.m_flag:
-            for i in name[1]:
-                self.m.add(tuple(i)) if not i == [''] else 0
-
-        elif name[0] in self.l_flag:
-            for i in name[1]:
-                self.l.add(tuple(i)) if not i == [''] else 0
-
-    # Limpar todos os livros
-    def apd(self, livros:dict):
+    # Verifica os itens que foram passados do frontend e adiciona eles em seus respectivos lugares
+    def verification_ordering(self, livros:dict):
         for lista in livros.items():
-            if lista[1] == ['']:
-                continue
-            self.verification_ordering(lista)
-        
+            if lista[0] in self.cn_flag:
+                for i in lista[1]:
+                    self.cn.add(tuple(i)) if not i == [''] else 0
 
+            elif lista[0] in self.ch_flag:
+                for i in lista[1]:
+                    self.ch.add(tuple(i)) if not i == [''] else 0
+
+            elif lista[0] in self.m_flag:
+                for i in lista[1]:
+                    self.m.add(tuple(i)) if not i == [''] else 0
+
+            elif lista[0] in self.l_flag:
+                for i in lista[1]:
+                    self.l.add(tuple(i)) if not i == [''] else 0
+
+        
+    # Retorna o context para ser adicionado no frontend
     def display(self):
         
         if self.cn or self.ch or self.l or self.m:
@@ -76,11 +71,12 @@ class OrgLiv:
         
         return None
 
-
+    # Upa os itens no banco de dados
     def up_books_db(self, items, turma):
         self.livros = items
         self.writedb.writing(self.livros, turma)
 
+    # Pega os itens do banco de dados
     def down_books_db(self, turma):
         try:
             self.livros = Read().reading(turma)
@@ -112,6 +108,3 @@ class OrgLiv:
             'literatura': [[''], ['']]
         }
     
-    
-
-        

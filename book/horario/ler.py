@@ -94,23 +94,29 @@ class Horario:
                 case 'sexta':
                     day = 5
                 case _:
-                    return None
+                    day =  None
         return day
-
 
     # Adicionar o dia de hoje por extenso e pegar o horário do dia
     def Dia_Horario(self, dia_especifico=None) -> str: 
         self.Materias_Horario()
 
         flag = self.week_day.isoweekday() + 1
-        day = 1 if flag > 7 else day = flag
 
+        # Verifica se é Domingo ou não
+        if flag > 7:
+            day = 1
+        else:
+            day = flag
+
+        # Se for sábado | domingo, ele seleciona o dia verificado pelo usuário
         if dia_especifico:
             day = self.Dia_Específico(day, dia_especifico)
 
             if not isinstance(day, int):
                 raise ValueError('O valor deve ser INT!')
 
+        # confere o dia que foi selecionado seja pelo usuário ou pelo própio sistema
         match day:
             case 1:
                 self.extenso += "segunda"

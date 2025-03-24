@@ -5,8 +5,8 @@ class Read:
     def __init__(self):
         self.items = {}
     
+    # Função para pegar todos os itens do banco de dados do flask
     def reading(self, turma):
-
         with app.app_context():
             if turma == "A":
                 livros = Livros_A.query.get(1)

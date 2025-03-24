@@ -9,7 +9,7 @@ def homepage():
     context = None
     horario = Horario()
     weekday = True
-    turm = None
+    turma = None
     ot_livros = {'interioridade': False, 'itinerario': False}
 
     if request.method == "POST":
@@ -54,7 +54,7 @@ def homepage():
 
 
                 
-        livros.up_books_db(items, turm)
+        livros.up_books_db(items, turma)
         
 
         context = livros.display()
@@ -84,12 +84,12 @@ def homepage():
     ]   
         dia = request.args.get('dayweek')
 
-        livros_all = livros.down_books_db(turm)
+        livros_all = livros.down_books_db(turma)
 
         if livros_all:
 
             horario.esc(turm)
-            horario = horario.today_day(dia)
+            horario = horario.Dia_Horario(turma, dia)
 
             if not horario:
                 weekday = horario
@@ -108,7 +108,7 @@ def homepage():
                         
                         livros_do_dia.update({i.lower(): livros_all[i.lower()]})
 
-                livros.apd(livros_do_dia)
+                livros.verification_ordering(livros_do_dia)
                 context = livros.display()
 
         if not isinstance(horario, list):

@@ -5,7 +5,8 @@ from app.models import Livros_B
 class Write:
     def __init__(self):
         self.items = {}
-        
+    
+    # Função para modificar os livros no banco de dados
     def writing(self, items:dict, turma=None):
         self.items = items
         final = {i[0]: str(i[1]) for i in self.items.items()}
