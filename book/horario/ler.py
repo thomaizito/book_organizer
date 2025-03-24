@@ -19,19 +19,9 @@ class Horario:
         self.today = None
         self.extenso = ''
 
-    # Adicionar qual a turma que o programa vai pegar no arquivo
-    def esc(self, turma):
-        if turma == 'A':
-            self.cur = self.arq['A']
 
-        elif turma == 'B':
-            self.cur = self.arq['B']
-
-        else:
-            raise ValueError("SEM turma")
-    
     #Match case interno para adicionar os valores em seus respectivos lugares
-    def dia(self, i, j, day):
+    def _dia(self, i, j, day):
         match day:
             case 'SEG':
                 if not day:
@@ -62,9 +52,27 @@ class Horario:
                 day = j[i].value
 
         return day
-            
+
+    # Funcão interna para caso tenha um dia específico selecionado
+    @staticmethod
+    def _Dia_Específico(dia_especifico:str):
+        match dia_especifico.lower():
+                case 'segunda':
+                    flag = 1
+                case 'terça':
+                    flag = 2
+                case 'quarta':
+                    flag = 3
+                case 'quinta':
+                    flag = 4
+                case 'sexta':
+                    flag = 5
+                case _:
+                    flag =  None
+        return flag
+
     # Pegar os itens do arquivo Horario
-    def Materias_Horario(self):
+    def _Materias_Horario(self):
         for i in range(5):
             cont=0
             day = None
@@ -77,44 +85,38 @@ class Horario:
                 if not j[i].value:
                     continue
                 
-                day = self.dia(i, j, day)
+                day = self._dia(i, j, day)
     
-    # Funcão interna para caso tenha um dia específico selecionado
-    @staticmethod
-    def Dia_Específico(day:int, dia_especifico:str):
-        match dia_especifico.lower():
-                case 'segunda':
-                    day = 1
-                case 'terça':
-                    day = 2
-                case 'quarta':
-                    day = 3
-                case 'quinta':
-                    day = 4
-                case 'sexta':
-                    day = 5
-                case _:
-                    day =  None
-        return day
+    # Adicionar qual a turma que o programa vai pegar no arquivo
+    def esc(self, turma):
+        if turma == 'A':
+            self.cur = self.arq['A']
+
+        elif turma == 'B':
+            self.cur = self.arq['B']
+
+        else:
+            raise ValueError("SEM turma")
 
     # Adicionar o dia de hoje por extenso e pegar o horário do dia
     def Dia_Horario(self, dia_especifico=None) -> str: 
-        self.Materias_Horario()
-
-        flag = self.week_day.isoweekday() + 1
-
-        # Verifica se é Domingo ou não
-        if flag > 7:
-            day = 1
-        else:
-            day = flag
+        self._Materias_Horario()
 
         # Se for sábado | domingo, ele seleciona o dia verificado pelo usuário
         if dia_especifico:
-            day = self.Dia_Específico(day, dia_especifico)
+            day = self._Dia_Específico(dia_especifico)
 
             if not isinstance(day, int):
                 raise ValueError('O valor deve ser INT!')
+            
+        else:
+            flag = self.week_day.isoweekday() + 1
+
+            # Verifica se é domingo ou não
+            if flag > 7:
+                day = 1
+            else:
+                day = flag
 
         # confere o dia que foi selecionado seja pelo usuário ou pelo própio sistema
         match day:

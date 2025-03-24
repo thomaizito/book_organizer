@@ -86,30 +86,32 @@ def homepage():
 
         livros_all = livros.down_books_db(turma)
 
-        if livros_all:
+        if not livros_all:
+            return False
+        
+        horario.esc(turm)
+        horario = horario.Dia_Horario(dia)
+        
 
-            horario.esc(turm)
-            horario = horario.Dia_Horario(turma, dia)
+        livros_do_dia = {}
 
-            if not horario:
-                weekday = horario
-            else:
-                livros_do_dia = {}
+        for i in horario:
+            print(i.lower())
+            if i.lower() in items:
+                if i.lower() == 'interioridade':
+                    ot_livros['interioridade'] = True
+                    continue
 
-                for i in horario:
-                    if i.lower() in items:
-                        if i.lower() == 'interioridade':
-                            ot_livros['interioridade'] = True
-                            continue
+                if i.lower() == 'itinerario':
+                    ot_livros['itinerario formativo'] = True
+                    print(ot_livros)
+                    continue
+                
+                livros_do_dia.update({i.lower(): livros_all[i.lower()]})
 
-                        if i.lower() == 'itinerario':
-                            ot_livros['itinerario'] = True
-                            continue
-                        
-                        livros_do_dia.update({i.lower(): livros_all[i.lower()]})
-
-                livros.verification_ordering(livros_do_dia)
-                context = livros.display()
+        livros.verification_ordering(livros_do_dia)
+        context = livros.display()
+        
 
         if not isinstance(horario, list):
             horario = None
@@ -118,4 +120,4 @@ def homepage():
 
             
 
-    return render_template('index.html', context=context, horario=horario, weekday=weekday, turma=turm, livros=livros.livros, ot_livros=ot_livros)
+    return render_template('index.html', context=context, horario=horario, turma=turm, livros=livros.livros, ot_livros=ot_livros)
