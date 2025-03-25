@@ -127,6 +127,12 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+./ambiente_virtual
+
+# Py cache
+./app/__pycache__/
+./book/pycache
+
 
 # Spyder project settings
 .spyderproject
@@ -158,10 +164,8 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
-/ambiente_virtual
-<<<<<<< HEAD
-/app/__pycache__
-app/__pycache__/__init__.cpython-313.pyc
+
+
+# Arquivo de testes para resolver coisas simples
+teste.py
 app/__pycache__/views.cpython-313.pyc
-=======
->>>>>>> parent of db17f0d (Funcionou mais ou menos)

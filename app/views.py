@@ -7,9 +7,8 @@ from book.horario.ler import Horario
 def homepage():
     livros = OrgLiv()
     context = None
-    horario = Horario()
-    weekday = True
-    turm = None
+    horario_func = Horario()
+    horario = None
     ot_livros = {'interioridade': False, 'itinerario': False}
 
     if request.method == "POST":
@@ -49,19 +48,19 @@ def homepage():
             'artes': artes,
             'literatura': literatura
         }
-        
-        turm = request.form['turma']
+            
+        turma = request.form['turma']
 
 
                 
-        livros.up_books_db(items, turm)
+        livros.up_books_db(items, turma)
         
 
         context = livros.display()
     
 
     if request.method == "GET":
-        turm = request.args.get('turma')
+        turma = request.args.get('turma')
     
         items = [
         'fisica',
@@ -84,38 +83,38 @@ def homepage():
     ]   
         dia = request.args.get('dayweek')
 
-        livros_all = livros.down_books_db(turm)
+        livros_all = livros.down_books_db(turma)
 
-        if livros_all:
+        
+        horario_func.esc(turma)
+        horario = horario_func.Dia_Horario(dia)
+        
 
-            horario.esc(turm)
-            horario = horario.today_day(dia)
+        livros_do_dia = {}
 
-            if not horario:
-                weekday = horario
-            else:
-                livros_do_dia = {}
+        try:
+            for i in horario:
+                if i.lower() in items:
+                    if i.lower() == 'interioridade':
+                        ot_livros['interioridade'] = True
+                        continue
 
-                for i in horario:
-                    if i.lower() in items:
-                        if i.lower() == 'interioridade':
-                            ot_livros['interioridade'] = True
-                            continue
+                    if i.lower() == 'itinerario':
+                        ot_livros['itinerario formativo'] = True
+                        print(ot_livros)
+                        continue
+                    
+                    livros_do_dia.update({i.lower(): livros_all[i.lower()]})
+        
+        except Exception as e:
+            horario = None
 
-                        if i.lower() == 'itinerario':
-                            ot_livros['itinerario'] = True
-                            continue
-                        
-                        livros_do_dia.update({i.lower(): livros_all[i.lower()]})
-
-                livros.apd(livros_do_dia)
-                context = livros.display()
-
+        livros.verification_ordering(livros_do_dia)
+        context = livros.display()
+        
         if not isinstance(horario, list):
             horario = None
         
-                
-
             
 
-    return render_template('index.html', context=context, horario=horario, weekday=weekday, turma=turm, livros=livros.livros, ot_livros=ot_livros)
+    return render_template('index.html', context=context, horario_func=horario_func, horario=horario, turma=turma, livros=livros.livros, ot_livros=ot_livros)

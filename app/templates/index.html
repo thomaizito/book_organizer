@@ -5,18 +5,20 @@
     <title>Organizador de Livros</title>
 
     <style>
-        body {
-            background-color: black;
-            color: white;
+        * {
             font-family: Arial, Helvetica, sans-serif;
         }
-        table {
-            align-items: start;
-            width: 100%;
 
+        body{
+            background-color: black;
+            color: white
+        }
+        
+        table {
+            width: 100%;
+            height: 160px;
         }
     </style>
-
 
 </head>
 
@@ -913,7 +915,7 @@
                 <option>B</option>
             </select> </h1>
 
-            {% if not weekday %}
+            {% if not horario_func.extenso %}
                 <h1>
                     <select name="dayweek">
                         <optione>  </optione>
@@ -930,9 +932,9 @@
             <button type="submit"> Ver horario </button>
         </form>
     </div>
-
+    
     {% if context %}
-        <h1>Você vai levar: </h1>
+    <h1>Você vai levar: </h1>
     {%endif%}
 
     {% if context['cn'] %}
@@ -958,12 +960,12 @@
     {% if ot_livros['itinerario'] %}
         <p> -- Itinerario -- </p>
     {%endif%}
-
-    {% if horario %}
-        {%for i in horario %}
-            {{i}}
-        {%endfor%}
-    {%endif%}
+    
+    <div class="horario">
+        {% if horario %}
+            {{horario}}
+        {%endif%}
+    </div>
 
 </body>
 

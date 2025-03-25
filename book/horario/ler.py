@@ -2,6 +2,11 @@ from openpyxl import load_workbook
 from datetime import date
 
 class Horario:
+    # self.seg -- self.sex == Matérias dos dias da semana
+    # self.cur == Matéria do dia que foi executado
+    # self.arq == Arquivo excell
+    # self.week_day == Objeto date
+    # self.today = 
     def __init__(self):
         self.seg = []
         self.ter = []
@@ -14,17 +19,9 @@ class Horario:
         self.today = None
         self.extenso = ''
 
-    def esc(self, turma):
-        if turma == 'A':
-            self.cur = self.arq['A']
 
-        elif turma == 'B':
-            self.cur = self.arq['B']
-
-        else:
-            raise ValueError("SEM turma")
-    
-    def dia(self, i, j, day):
+    #Match case interno para adicionar os valores em seus respectivos lugares
+    def _dia(self, i, j, day):
         match day:
             case 'SEG':
                 if not day:
@@ -55,10 +52,27 @@ class Horario:
                 day = j[i].value
 
         return day
-            
-    # Pegar os itens do arquivo Horario
-    def apd(self):
 
+    # Funcão interna para caso tenha um dia específico selecionado
+    @staticmethod
+    def _Dia_Específico(dia_especifico:str):
+        match dia_especifico.lower():
+                case 'segunda':
+                    flag = 1
+                case 'terça':
+                    flag = 2
+                case 'quarta':
+                    flag = 3
+                case 'quinta':
+                    flag = 4
+                case 'sexta':
+                    flag = 5
+                case _:
+                    flag =  None
+        return flag
+
+    # Pegar os itens do arquivo Horario
+    def _Materias_Horario(self):
         for i in range(5):
             cont=0
             day = None
@@ -71,36 +85,40 @@ class Horario:
                 if not j[i].value:
                     continue
                 
-                day = self.dia(i, j, day)
+                day = self._dia(i, j, day)
     
-    # Adicionar o dia de hoje por extenso e pegar o horário do dia
-    def today_day(self, dia_específico=None) -> str: 
-        self.apd()
+    # Adicionar qual a turma que o programa vai pegar no arquivo
+    def esc(self, turma):
+        if turma == 'A':
+            self.cur = self.arq['A']
 
-        flag = self.week_day.isoweekday() + 1
-        if flag > 7:
-            day = 1
+        elif turma == 'B':
+            self.cur = self.arq['B']
+
         else:
-            day = flag
+            raise ValueError("SEM turma")
 
-        if dia_específico:
-            match dia_específico.lower():
-                case 'segunda':
-                    day = 1
-                case 'terça':
-                    day = 2
-                case 'quarta':
-                    day = 3
-                case 'quinta':
-                    day = 4
-                case 'sexta':
-                    day = 5
-                case _:
-                    self.today = None
+    # Adicionar o dia de hoje por extenso e pegar o horário do dia
+    def Dia_Horario(self, dia_especifico=None) -> str: 
+        self._Materias_Horario()
 
-        if not isinstance(day, int):
-            raise ValueError('O valor deve ser INT!')
+        # Se for sábado | domingo, ele seleciona o dia verificado pelo usuário
+        if dia_especifico:
+            day = self._Dia_Específico(dia_especifico)
 
+            if not isinstance(day, int):
+                raise ValueError('O valor deve ser INT!')
+            
+        else:
+            flag = self.week_day.isoweekday() + 1
+
+            # Verifica se é domingo ou não
+            if flag > 7:
+                day = 1
+            else:
+                day = flag
+
+        # confere o dia que foi selecionado seja pelo usuário ou pelo própio sistema
         match day:
             case 1:
                 self.extenso += "segunda"
@@ -123,15 +141,16 @@ class Horario:
                 self.today = self.sex
 
             case 6:
-                self.extenso += 'sábado'
+                #self.extenso += 'sábado'
+                self.extenso += ''
                 self.today = None
 
             case 7:
-                self.extenso += 'domingo'
+                #self.extenso += 'domingo'
+                self.extenso += ""
                 self.today = None
 
             case _:
-                self.extenso = False
-                
+                self.extenso = None
         return self.today
         
