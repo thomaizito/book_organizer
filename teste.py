@@ -1,4 +1,6 @@
-from book.database.read import Read
+from app import app, db
+from app.models import Livros_B
 
-sla = Read()
-sla.reading("A")
+with app.app_context():
+    db.drop_all()
+    db.create_all

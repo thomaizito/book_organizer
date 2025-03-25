@@ -8,7 +8,6 @@ def homepage():
     livros = OrgLiv()
     context = None
     horario = Horario()
-    weekday = True
     turma = None
     ot_livros = {'interioridade': False, 'itinerario': False}
 
@@ -49,7 +48,7 @@ def homepage():
             'artes': artes,
             'literatura': literatura
         }
-        
+            
         turm = request.form['turma']
 
 

@@ -19,6 +19,7 @@ class Livros_A(db.Model):
     literatura = db.Column(db.String, nullable=True)
     artes = db.Column(db.String, nullable=True)
 
+
 class Livros_B(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fisica = db.Column(db.String, nullable=True)
