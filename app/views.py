@@ -8,6 +8,7 @@ def homepage():
     livros = OrgLiv()
     context = None
     horario_func = Horario()
+    horario = None
     ot_livros = {'interioridade': False, 'itinerario': False}
 
     if request.method == "POST":
