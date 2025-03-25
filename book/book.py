@@ -36,12 +36,6 @@ class OrgLiv:
         self.writedb = Write()
         self.readdb = Read()
 
-    def horario_do_dia(self):
-        if not self.dia.Materias_Horario():
-            self.dia.extenso = False
-        
-        return self.dia.extenso    
-
     # Verifica os itens que foram passados do frontend e adiciona eles em seus respectivos lugares
     def verification_ordering(self, livros:dict):
         for lista in livros.items():

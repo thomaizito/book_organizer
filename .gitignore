@@ -168,3 +168,4 @@ cython_debug/
 
 # Arquivo de testes para resolver coisas simples
 teste.py
+app/__pycache__/views.cpython-313.pyc

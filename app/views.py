@@ -94,19 +94,22 @@ def homepage():
 
         livros_do_dia = {}
 
-        for i in horario:
-            print(i.lower())
-            if i.lower() in items:
-                if i.lower() == 'interioridade':
-                    ot_livros['interioridade'] = True
-                    continue
+        try:
+            for i in horario:
+                if i.lower() in items:
+                    if i.lower() == 'interioridade':
+                        ot_livros['interioridade'] = True
+                        continue
 
-                if i.lower() == 'itinerario':
-                    ot_livros['itinerario formativo'] = True
-                    print(ot_livros)
-                    continue
-                
-                livros_do_dia.update({i.lower(): livros_all[i.lower()]})
+                    if i.lower() == 'itinerario':
+                        ot_livros['itinerario formativo'] = True
+                        print(ot_livros)
+                        continue
+                    
+                    livros_do_dia.update({i.lower(): livros_all[i.lower()]})
+        
+        except Exception as e:
+            horario = None
 
         livros.verification_ordering(livros_do_dia)
         context = livros.display()
