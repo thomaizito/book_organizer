@@ -62,8 +62,6 @@ class OrgLiv:
         if self.cn or self.ch or self.l or self.m:
             context = {'cn': self.cn, 'ch': self.ch, 'm': self.m, 'l': self.l}
             return context
-        
-        return None
 
     # Upa os itens no banco de dados
     def up_books_db(self, items, turma):

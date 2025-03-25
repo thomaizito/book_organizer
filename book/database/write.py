@@ -13,8 +13,10 @@ class Write:
         
         if turma == 'A':
             Model = Livros_A
-        else:
+        elif turma == "B":
             Model = Livros_B
+        else:
+            raise ValueError("O valor não foi atendido corretamente, A ou B")
 
         with app.app_context():
 
@@ -44,7 +46,7 @@ class Write:
 
                 db.session.add(add)
                 db.session.commit()
-                return True
+                return
 
             livrosdb.fisica = final['fisica']
             livrosdb.quimica = final['quimica']

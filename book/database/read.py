@@ -8,10 +8,14 @@ class Read:
     # Função para pegar todos os itens do banco de dados do flask
     def reading(self, turma):
         with app.app_context():
+
+            # Verifica qual é a turma escolhida
             if turma == "A":
                 livros = Livros_A.query.get(1)
-            else:
+            elif turma == 'B':
                 livros = Livros_B.query.get(1)
+            else:
+                raise ValueError("O valor selecionado não atendeu as espectativas, A ou B")
 
             self.items:dict = {
                 'fisica': livros.fisica,

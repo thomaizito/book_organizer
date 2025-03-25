@@ -141,11 +141,13 @@ class Horario:
                 self.today = self.sex
 
             case 6:
-                self.extenso += 'sábado'
+                #self.extenso += 'sábado'
+                self.extenso += ''
                 self.today = None
 
             case 7:
-                self.extenso += 'domingo'
+                #self.extenso += 'domingo'
+                self.extenso += ""
                 self.today = None
 
             case _:

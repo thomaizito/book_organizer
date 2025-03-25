@@ -7,8 +7,7 @@ from book.horario.ler import Horario
 def homepage():
     livros = OrgLiv()
     context = None
-    horario = Horario()
-    turma = None
+    horario_func = Horario()
     ot_livros = {'interioridade': False, 'itinerario': False}
 
     if request.method == "POST":
@@ -49,7 +48,7 @@ def homepage():
             'literatura': literatura
         }
             
-        turm = request.form['turma']
+        turma = request.form['turma']
 
 
                 
@@ -60,7 +59,7 @@ def homepage():
     
 
     if request.method == "GET":
-        turm = request.args.get('turma')
+        turma = request.args.get('turma')
     
         items = [
         'fisica',
@@ -85,11 +84,9 @@ def homepage():
 
         livros_all = livros.down_books_db(turma)
 
-        if not livros_all:
-            return False
         
-        horario.esc(turm)
-        horario = horario.Dia_Horario(dia)
+        horario_func.esc(turma)
+        horario = horario_func.Dia_Horario(dia)
         
 
         livros_do_dia = {}
@@ -114,12 +111,9 @@ def homepage():
         livros.verification_ordering(livros_do_dia)
         context = livros.display()
         
-
         if not isinstance(horario, list):
             horario = None
         
-                
-
             
 
-    return render_template('index.html', context=context, horario=horario, turma=turm, livros=livros.livros, ot_livros=ot_livros)
+    return render_template('index.html', context=context, horario_func=horario_func, horario=horario, turma=turma, livros=livros.livros, ot_livros=ot_livros)
