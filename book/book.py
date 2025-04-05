@@ -80,7 +80,7 @@ class OrgLiv:
 
             return self.livros
         
-        except AttributeError:
+        except AttributeError or Exception:
             self.livros = {
             'fisica': [[''], ['']],
             'quimica': [[''], ['']],

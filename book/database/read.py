@@ -30,7 +30,7 @@ class Read:
                 'matematica': livros.matematica,
 
                 'portugues': livros.portugues,
-                'ed': livros.ed,
+                'ed': livros.educacao,
                 'ingles': livros.ingles,
                 'literatura': livros.literatura,
                 'artes': livros.artes

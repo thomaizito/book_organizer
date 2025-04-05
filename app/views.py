@@ -24,7 +24,7 @@ def homepage():
         matematica = [request.form['m1'].split(' '), request.form['m2'].split(' ')]
 
         portugues = [request.form['p1'].split(' '), request.form['p2'].split(' ')]
-        ed = [request.form['ed1'].split(' '), request.form['ed2'].split(' ')]
+        educacao = [request.form['ed1'].split(' '), request.form['ed2'].split(' ')]
         ingles = [request.form['i1'].split(' '), request.form['i2'].split(' ')]
         literatura = [request.form['li1'].split(' '), request.form['li2'].split(' ')]
         artes = [request.form['a1'].split(' '), request.form['a2'].split(' ')]
@@ -42,7 +42,7 @@ def homepage():
             'matematica': matematica,
             
             'portugues': portugues,
-            'ed': ed,
+            'ed': educacao,
             'ingles': ingles,
             'artes': artes,
             'literatura': literatura

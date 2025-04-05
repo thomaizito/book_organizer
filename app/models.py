@@ -14,7 +14,7 @@ class Livros_A(db.Model):
     matematica = db.Column(db.String, nullable=True)
 
     portugues = db.Column(db.String, nullable=True)
-    ed = db.Column(db.String, nullable=True)
+    educacao = db.Column(db.String, nullable=True)
     ingles = db.Column(db.String, nullable=True)
     literatura = db.Column(db.String, nullable=True)
     artes = db.Column(db.String, nullable=True)
@@ -34,7 +34,7 @@ class Livros_B(db.Model):
     matematica = db.Column(db.String, nullable=True)
 
     portugues = db.Column(db.String, nullable=True)
-    ed = db.Column(db.String, nullable=True)
+    educacao = db.Column(db.String, nullable=True)
     ingles = db.Column(db.String, nullable=True)
     literatura = db.Column(db.String, nullable=True)
     artes = db.Column(db.String, nullable=True)
