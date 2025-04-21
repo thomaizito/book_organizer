@@ -60,6 +60,8 @@ def homepage():
 
     if request.method == "GET":
         turma = request.args.get('turma')
+        if not turma:
+            turma = "B"
     
         items = [
         'fisica',
@@ -83,10 +85,7 @@ def homepage():
         dia = request.args.get('dayweek')
 
         livros_all = livros.down_books_db(turma)
-
-        
-        horario_func.esc(turma)
-        horario = horario_func.Dia_Horario(dia)
+        horario = horario_func.Dia_Horario(dia, turma)
         
 
         livros_do_dia = {}

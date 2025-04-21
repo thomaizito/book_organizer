@@ -88,7 +88,7 @@ class Horario:
                 day = self._dia(i, j, day)
     
     # Adicionar qual a turma que o programa vai pegar no arquivo
-    def esc(self, turma):
+    def _esc(self, turma):
         if turma == 'A':
             self.cur = self.arq['A']
 
@@ -99,7 +99,8 @@ class Horario:
             raise ValueError("SEM turma")
 
     # Adicionar o dia de hoje por extenso e pegar o horário do dia
-    def Dia_Horario(self, dia_especifico=None) -> str: 
+    def Dia_Horario(self, dia_especifico=None, turma=None) -> str: 
+        self._esc(turma)
         self._Materias_Horario()
 
         # Se for sábado | domingo, ele seleciona o dia verificado pelo usuário
