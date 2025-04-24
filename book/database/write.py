@@ -38,7 +38,7 @@ class Write:
                     matematica = final['matematica'],
 
                     portugues = final['portugues'],
-                    ed = final['ed'],
+                    educacao = final['ed'],
                     ingles = final['ingles'],
                     literatura = final['literatura'],
                     artes = final['artes']

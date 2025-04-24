@@ -112,7 +112,5 @@ def homepage():
         
         if not isinstance(horario, list):
             horario = None
-        
-            
 
     return render_template('index.html', context=context, horario_func=horario_func, horario=horario, turma=turma, livros=livros.livros, ot_livros=ot_livros)
