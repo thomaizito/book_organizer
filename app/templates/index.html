@@ -846,7 +846,23 @@
     {% endif %}
 
     <p> {{horario}} </p>
-</body>
+    {% if context['l'] %}
+        <p> Linguagens: {%for i in context['l'] %}  {{" ".join(i)}} | {%endfor%} </p>
+    {% endif %}
 
+    {% if ot_livros['interioridade'] %}
+        <p> -- Livro de Interioridade -- </p>
+    {%endif%}
+
+    {% if ot_livros['itinerario'] %}
+        <p> -- Itinerario -- </p>
+    {%endif%}
+    
+    <div class="horario">
+        {% if horario %}
+            {{horario}}
+        {%endif%}
+    </div>
+</body>
 
 </html>
